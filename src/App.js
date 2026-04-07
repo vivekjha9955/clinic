@@ -19,7 +19,7 @@ import FloatingButtons from "./components/Common/FloatingButtons";
 import Brands from "./components/Brands/Brands";
 import FAQPage from "./components/FAQ/FAQ";
 import BrandDetail from "./components/Brands/BrandDetail";
-import ServiceDetail from "./components/Services/ServiceDetail";
+import ServiceDetail from "./components/Services/Servicedetails";
 
 function App() {
   const [showFAQ, setShowFAQ] = useState(false);
