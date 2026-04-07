@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/global.css";
 
 import TopBar from "./components/Navbar/TopBar";
@@ -8,8 +8,8 @@ import AppointmentBar from "./components/AppointmentBar/AppointmentBar";
 import Services from "./components/Services/Services";
 import About from "./components/About/About";
 import Stats from "./components/Stats/Stats";
-import Products from "./components/Products/Products";
 import WhyTrust from "./components/WhyTrust/WhyTrust";
+
 import Testimonials from "./components/Testimonials/Testimonials";
 import Certifications from "./components/Certifications/Certifications";
 import Contact from "./components/Contact/Contact";
@@ -18,28 +18,50 @@ import Footer from "./components/Footer/Footer";
 import FloatingButtons from "./components/Common/FloatingButtons";
 import Brands from "./components/Brands/Brands";
 import FAQPage from "./components/FAQ/FAQ";
-import { useState } from "react";
+import BrandDetail from "./components/Brands/BrandDetail";
+import ServiceDetail from "./components/Services/ServiceDetail";
+
 function App() {
-   const [showFAQ, setShowFAQ] = useState(false);
+  const [showFAQ, setShowFAQ] = useState(false);
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedService, setSelectedService] = useState(null);
+
   return (
-    <div className="App">
+    <div className="App" id="home">
       <TopBar />
-      <Navbar onFAQClick={() => setShowFAQ(true)}/>
+      <Navbar
+        onFAQClick={() => setShowFAQ(true)}
+        onBrandSelect={(brand) => setSelectedBrand(brand)}
+        onServiceSelect={(svc) => setSelectedService(svc)}
+      />
       <Hero />
       <AppointmentBar />
       <Services />
       <About />
       <Stats />
-    {/* <Products /> */}
-<Brands />       {/* ← add this line */}
-<WhyTrust />
+      <Brands />
+      <WhyTrust />
       <Testimonials />
       <Certifications />
       <Contact />
       <Blogs />
       <Footer />
       <FloatingButtons />
-            {showFAQ && <FAQPage onClose={() => setShowFAQ(false)} />}
+
+      {/* Overlays */}
+      {showFAQ && <FAQPage onClose={() => setShowFAQ(false)} />}
+      {selectedBrand && (
+        <BrandDetail
+          brand={selectedBrand}
+          onClose={() => setSelectedBrand(null)}
+        />
+      )}
+      {selectedService && (
+        <ServiceDetail
+          service={selectedService}
+          onClose={() => setSelectedService(null)}
+        />
+      )}
     </div>
   );
 }
