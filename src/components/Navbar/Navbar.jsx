@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { NAV_LINKS, HEARING_BRANDS, PRODUCTS } from "../../data/constants";
+import { NAV_LINKS, HEARING_BRANDS } from "../../data/constants";
 
 const Navbar = ({ onFAQClick, onBrandSelect, onServiceSelect }) => {
   const [menuOpen, setMenuOpen] = useState(false);
