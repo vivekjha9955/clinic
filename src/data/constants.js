@@ -112,7 +112,7 @@ export const SERVICES = [
 export const STATS = [
   { id: 1, icon: "fas fa-calendar-days", target: 17, suffix: "+", label: "Years of Experience" },
   { id: 2, icon: "fas fa-face-smile", target: 7000, suffix: "+", label: "Happy Customers" },
-  { id: 3, icon: "fas fa-headphones", target: 3000, suffix: "+", label: "Hearing Aids Sold" },
+  { id: 3, icon: "fas fa-headphones", target: 15000, suffix: "+", label: "Hearing Aids Sold" },
   { id: 4, icon: "fas fa-stethoscope", target: 10000, suffix: "+", label: "Hearing Tests Done" },
 ];
 
