@@ -11,15 +11,25 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+
+    const text =
+      `Hello Indian Speech & Hearing Clinic! 👋\n\n` +
+      `I would like to book an appointment. Here are my details:\n\n` +
+      `*Name:* ${form.name}\n` +
+      `*Email:* ${form.email || "Not provided"}\n` +
+      `*Phone:* ${form.phone}\n` +
+      `*Subject:* ${form.subject || "General Enquiry"}\n` +
+      `*Message:* ${form.message || "No additional message"}`;
+
+    const url = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank", "noreferrer");
+
     setForm({ name: "", email: "", phone: "", subject: "", message: "" });
   };
 
@@ -29,15 +39,15 @@ const Contact = () => {
         <SectionHeader
           tag="Get In Touch"
           title="Contact Us"
-          subtitle="Book an appointment or reach us at any of our Delhi locations."
+          subtitle="Book an appointment or reach us directly — we're just a message away."
         />
         <div className="contact__grid">
           {/* Info Side */}
           <div className="contact__info">
             <h3 className="contact__info-title">We're Here to Help</h3>
             <p className="contact__info-desc">
-              Visit us at our conveniently located clinics in Delhi or reach out
-              through phone, WhatsApp, or email.
+              Visit us at our clinic in Ranchi or reach out through phone,
+              WhatsApp, or email. Our team responds promptly.
             </p>
 
             <div className="contact__item">
@@ -46,9 +56,7 @@ const Contact = () => {
               </div>
               <div>
                 <span className="contact__item-label">Email Us</span>
-                <a href={`mailto:${CONTACT_INFO.email}`}>
-                  {CONTACT_INFO.email}
-                </a>
+                <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
               </div>
             </div>
 
@@ -86,6 +94,16 @@ const Contact = () => {
                 <div>
                   <span className="contact__item-label">{loc.label}</span>
                   <span>{loc.address}</span>
+                  {loc.mapUrl && (
+                    <a
+                      href={loc.mapUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="contact__map-link"
+                    >
+                      <i className="fas fa-map"></i> View on Google Maps
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -95,13 +113,14 @@ const Contact = () => {
           <form className="contact__form" onSubmit={handleSubmit}>
             <div className="contact__form-row">
               <div className="form-group">
-                <label>Your Name</label>
+                <label>Your Name *</label>
                 <input
                   type="text"
                   name="name"
                   placeholder="Enter your name"
                   value={form.name}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -148,15 +167,12 @@ const Contact = () => {
                 rows={5}
               />
             </div>
-            <button type="submit" className="btn-primary">
-              <i className="fas fa-paper-plane"></i>
-              Submit
+
+            <button type="submit" className="btn-primary contact__submit-btn">
+              
+             Submit
             </button>
-            {submitted && (
-              <div className="contact__success">
-                ✅ Thank you! We will contact you shortly.
-              </div>
-            )}
+           
           </form>
         </div>
       </div>
