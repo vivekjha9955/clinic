@@ -3,7 +3,7 @@ import "./Footer.css";
 import {
   CONTACT_INFO,
   FOOTER_COMPANY_LINKS,
-  FOOTER_SERVICE_LINKS,
+  
 } from "../../data/constants";
 
 const Footer = () => {
@@ -14,11 +14,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer__brand">
             <div className="footer__logo">
-              Indian Speech & Hearing<span> Clinic</span>
+              Indian Speech &amp; Hearing<span> Clinic</span>
             </div>
-            <div className="footer__unit">A Unit of Hope Enterprises</div>
+            <div className="footer__unit">Trustable Enterprise</div>
             <p>
-              We are a Signia Certified Center. Our mission is to improve the
+               Our mission is to improve the
               health of our community by providing high quality, comprehensive
               hearing care in a welcoming and compassionate environment.
             </p>
@@ -31,10 +31,14 @@ const Footer = () => {
                 <i className="fas fa-phone"></i>
                 {CONTACT_INFO.phone1}
               </a>
-              <span>
+              <a
+                href={CONTACT_INFO.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className="fas fa-location-dot"></i>
-               Indian Speech and Hearing Clinic, 1st floor, Arctic Mall, Bariatu Road, Ranchi-834009, Ranchi, India, Jharkhand
-              </span>
+                1st Floor, Arctic Mall, Bariatu Road, Ranchi – 834009, Jharkhand
+              </a>
             </div>
           </div>
 
@@ -50,7 +54,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services Links */}
+          {/* Services Links
           <div className="footer__col">
             <h4>Services</h4>
             <ul>
@@ -60,17 +64,25 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Locations */}
           <div className="footer__col footer__col--locations">
-            <h4>Our Locations</h4>
+            <h4>Our Location</h4>
             {CONTACT_INFO.locations.map((loc) => (
               <div className="footer__location" key={loc.id}>
                 <i className="fas fa-location-dot"></i>
                 <div>
                   <strong>{loc.label}</strong>
                   <p>{loc.address}</p>
+                  <a
+                    href={loc.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="footer__map-link"
+                  >
+                    <i className="fas fa-map"></i> View on Google Maps
+                  </a>
                 </div>
               </div>
             ))}
@@ -80,7 +92,7 @@ const Footer = () => {
 
       <div className="footer__bottom">
         <div className="container">
-          © {new Date().getFullYear()} Indian Speech & Hearing Clinic. All Rights Reserved. |
+          © {new Date().getFullYear()} Indian Speech &amp; Hearing Clinic. All Rights Reserved. |
           Designed with ❤️ for Better Hearing Health
         </div>
       </div>

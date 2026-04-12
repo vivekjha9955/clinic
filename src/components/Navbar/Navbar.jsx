@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { NAV_LINKS, HEARING_BRANDS } from "../../data/constants";
+import { NAV_LINKS } from "../../data/constants";
+import logo from "../../assets/WhatsApp Image 2026-03-02 at 6.43.12 PM.jpeg";
 
 const Navbar = ({ onFAQClick, onBrandSelect, onServiceSelect }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,10 +20,12 @@ const Navbar = ({ onFAQClick, onBrandSelect, onServiceSelect }) => {
         <div className="navbar__inner">
           {/* Logo */}
           <a href="#home" className="navbar__logo">
-            Indian Speech &amp; Hearing<span> Clinic</span>
+            <img src={logo} alt="Indian Speech & Hearing Clinic Logo" className="navbar__logo-img" />
+            <span className="navbar__logo-text">
+              Indian Speech &amp; Hearing<span className="navbar__logo-accent"> Clinic</span>
+            </span>
           </a>
 
-          {/* Nav Links */}
           <ul className={`navbar__links ${menuOpen ? "navbar__links--open" : ""}`}>
             {NAV_LINKS.map((link) => (
               <li key={link.label} className="navbar__item">
@@ -66,14 +69,13 @@ const Navbar = ({ onFAQClick, onBrandSelect, onServiceSelect }) => {
                   </ul>
                 )}
 
-                {/* Hearing Aids Dropdown — all brands + models */}
-                {link.label === "Hearing Aids" && (
-                  <ul className="navbar__dropdown navbar__dropdown--wide">
-                    <li className="navbar__dropdown-heading">By Style</li>
-                    {HEARING_TYPE_LINKS.map((item) => (
+                {/* Generic dropdown */}
+                {link.dropdown && link.label !== "Services" && link.label !== "Hearing Devices" && (
+                  <ul className="navbar__dropdown">
+                    {link.dropdown.map((item) => (
                       <li key={item.label}>
                         <a
-                          href="#brands"
+                          href={item.href || "#home"}
                           className="navbar__dropdown-link"
                           onClick={() => setMenuOpen(false)}
                         >
@@ -81,56 +83,17 @@ const Navbar = ({ onFAQClick, onBrandSelect, onServiceSelect }) => {
                         </a>
                       </li>
                     ))}
-                    <li className="navbar__dropdown-heading">Top Brands</li>
-                    {HEARING_BRANDS.map((brand) => (
-                      <li key={brand.id}>
-                        <button
-                          className="navbar__dropdown-link navbar__dropdown-btn"
-                          onClick={() => {
-                            onBrandSelect && onBrandSelect(brand);
-                            setMenuOpen(false);
-                          }}
-                        >
-                          <i className={brand.icon} style={{ marginRight: 8, color: "var(--primary)" }}></i>
-                          {brand.brand}
-                        </button>
-                      </li>
-                    ))}
                   </ul>
                 )}
-
-                {/* Generic dropdown for other items */}
-                {link.dropdown &&
-                  link.label !== "Services" &&
-                  link.label !== "Hearing Aids" && (
-                    <ul className="navbar__dropdown">
-                      {link.dropdown.map((item) => (
-                        <li key={item.label}>
-                          <a
-                            href={item.href || "#home"}
-                            className="navbar__dropdown-link"
-                            onClick={() => setMenuOpen(false)}
-                          >
-                            {item.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
               </li>
             ))}
             <li>
-              <a
-                href="#contact"
-                className="navbar__link navbar__cta"
-                onClick={() => setMenuOpen(false)}
-              >
+              <a href="#contact" className="navbar__link navbar__cta" onClick={() => setMenuOpen(false)}>
                 Contact Us
               </a>
             </li>
           </ul>
 
-          {/* Hamburger */}
           <button
             className="navbar__hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -144,18 +107,6 @@ const Navbar = ({ onFAQClick, onBrandSelect, onServiceSelect }) => {
   );
 };
 
-// Hearing aid styles for dropdown
-const HEARING_TYPE_LINKS = [
-  { label: "BTE Hearing Aids" },
-  { label: "CIC Hearing Aids" },
-  { label: "ITC Hearing Aids" },
-  { label: "IIC Hearing Aids" },
-  { label: "RIC / RITE Hearing Aids" },
-  { label: "Rechargeable Hearing Aids" },
-  { label: "Bluetooth Hearing Aids" },
-];
-
-// Services data mirrored for dropdown
 const SERVICES_DATA = [
   { id: 1, icon: "fas fa-microscope", title: "Hearing Test" },
   { id: 2, icon: "fas fa-headphones", title: "Hearing Aid" },

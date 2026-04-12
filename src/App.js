@@ -11,9 +11,9 @@ import Stats from "./components/Stats/Stats";
 import WhyTrust from "./components/WhyTrust/WhyTrust";
 
 import Testimonials from "./components/Testimonials/Testimonials";
-import Certifications from "./components/Certifications/Certifications";
+// import Certifications from "./components/Certifications/Certifications";
 import Contact from "./components/Contact/Contact";
-import Blogs from "./components/Blogs/Blogs";
+// import Blogs from "./components/Blogs/Blogs";
 import Footer from "./components/Footer/Footer";
 import FloatingButtons from "./components/Common/FloatingButtons";
 import Brands from "./components/Brands/Brands";
@@ -42,9 +42,9 @@ function App() {
       <Brands />
       <WhyTrust />
       <Testimonials />
-      <Certifications />
+      {/* <Certifications /> */}
       <Contact />
-      <Blogs />
+      {/* <Blogs /> */}
       <Footer />
       <FloatingButtons />
 

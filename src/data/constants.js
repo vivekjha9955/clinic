@@ -1,37 +1,37 @@
 // ===== NAVIGATION DATA =====
 export const NAV_LINKS = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   {
     label: "Services",
     href: "#services",
     dropdown: [
-      { label: "Hearing Care Solution in Ranchi", href: "#" },
-      { label: "Hearing Test in Ranchi", href: "#" },
-      { label: "Hearing Aid Center in Delhi", href: "#" },
-      { label: "Speech Therapy in Delhi", href: "#" },
-      { label: "ENT Services in Delhi", href: "#" },
-      { label: "Pure Tone Audiometry Test", href: "#" },
-      { label: "BERA Test in Delhi", href: "#" },
-      { label: "OAE Test in Delhi", href: "#" },
+      { label: "Hearing Care Solution in Ranchi", href: "#services" },
+      { label: "Hearing Test in Ranchi", href: "#services" },
+      { label: "Hearing Aid Center in Ranchi", href: "#services" },
+      { label: "Speech Therapy in Ranchi", href: "#services" },
+      { label: "ENT Services in Ranchi", href: "#services" },
+      { label: "Pure Tone Audiometry Test", href: "#services" },
+      { label: "BERA Test in Ranchi", href: "#services" },
+      { label: "OAE Test in Ranchi", href: "#services" },
     ],
   },
   {
-    label: "Hearing Aids",
-    href: "#products",
-    dropdown: [
-      { label: "BTE Hearing Aids", href: "#" },
-      { label: "CIC Hearing Aids", href: "#" },
-      { label: "ITC Hearing Aids", href: "#" },
-      { label: "IIC Hearing Aids", href: "#" },
-      { label: "RIC Hearing Aids", href: "#" },
-      { label: "Rechargeable Hearing Aids", href: "#" },
-      { label: "Bluetooth Hearing Aids", href: "#" },
-      { label: "Wireless Hearing Aids", href: "#" },
-      { label: "Pocket Hearing Aids", href: "#" },
-    ],
+    label: "Hearing Devices",
+    href: "#brands",
+    // dropdown: [
+    //   { label: "BTE Hearing Aids", href: "#brands" },
+    //   { label: "CIC Hearing Aids", href: "#brands" },
+    //   { label: "ITC Hearing Aids", href: "#brands" },
+    //   { label: "IIC Hearing Aids", href: "#brands" },
+    //   { label: "RIC Hearing Aids", href: "#brands" },
+    //   { label: "Rechargeable Hearing Aids", href: "#brands" },
+    //   { label: "Bluetooth Hearing Aids", href: "#brands" },
+    //   { label: "Wireless Hearing Aids", href: "#brands" },
+    //   { label: "Pocket Hearing Aids", href: "#brands" },
+    // ],
   },
-  { label: "Blog", href: "#blogs" },
+  // { label: "Blog", href: "#blogs" },
   { label: "FAQ", href: "#" },
 ];
 
@@ -51,12 +51,12 @@ export const HERO_SLIDES = [
   {
     id: 2,
     gradient: "linear-gradient(135deg, #3d0000 0%, #800000 60%, #a00000 100%)",
-    title: "Advanced Hearing Aids for Every Need",
+    title: "Advanced Hearing Devices for Every Need",
     subtitle:
-      "Explore our wide range of Signia hearing aids — customized fitting for maximum comfort and performance.",
-    btnText: "View Products",
+      "Explore our wide range of hearing aids from top global brands — customized fitting for maximum comfort and performance.",
+    btnText: "View Devices",
     btnIcon: "fas fa-headphones",
-    btnHref: "#products",
+    btnHref: "#brands",
     icon: "fas fa-headphones-simple",
   },
   {
@@ -113,7 +113,7 @@ export const STATS = [
   { id: 1, icon: "fas fa-calendar-days", target: 17, suffix: "+", label: "Years of Experience" },
   { id: 2, icon: "fas fa-face-smile", target: 7000, suffix: "+", label: "Happy Customers" },
   { id: 3, icon: "fas fa-headphones", target: 3000, suffix: "+", label: "Hearing Aids Sold" },
-  { id: 4, icon: "fas fa-stethoscope", target: 8000, suffix: "+", label: "Hearing Tests Done" },
+  { id: 4, icon: "fas fa-stethoscope", target: 10000, suffix: "+", label: "Hearing Tests Done" },
 ];
 
 // ===== PRODUCTS DATA =====
@@ -166,60 +166,12 @@ export const PRODUCTS = [
       "Rechargeable hearing aid offering all-day use with 16-channel sound processing, perfect for active lifestyles.",
     href: "#",
   },
-  {
-    id: 7,
-    icon: "fab fa-bluetooth-b",
-    title: "Signia Kit Styletto 1AX – 16 Channel",
-    description:
-      "Stylish and innovative hearing aid with 16 channels, combining aesthetic design and advanced sound technology.",
-    href: "#",
-  },
-  {
-    id: 8,
-    icon: "fas fa-circle-dot",
-    title: "Signia Silk 1X – 16 Channel",
-    description:
-      "Nearly invisible hearing aid with 16 channels, providing natural sound and a snug fit for enhanced discretion.",
-    href: "#",
-  },
-  {
-    id: 9,
-    icon: "fas fa-wave-square",
-    title: "Signia BTE Intuis 4.1 P/SP",
-    description:
-      "A powerful BTE hearing aid available in power and super power options, offering clear sound for moderate to severe hearing loss.",
-    href: "#",
-  },
-  {
-    id: 10,
-    icon: "fas fa-signal",
-    title: "Signia RIC Pure 1AX",
-    description:
-      "Advanced RIC hearing aid with enhanced sound processing technology for greater speech clarity in various situations.",
-    href: "#",
-  },
-  {
-    id: 11,
-    icon: "fas fa-microchip",
-    title: "Signia Digital 16 Channel",
-    description:
-      "A 16-channel digital hearing aid providing precise sound customization and excellent clarity across various environments.",
-    href: "#",
-  },
-  {
-    id: 12,
-    icon: "fas fa-bolt",
-    title: "Signia Kit Active – 16 Channel",
-    description:
-      "A cutting-edge high-tech hearing aid designed for active users, featuring 16 channels and a sleek design.",
-    href: "#",
-  },
 ];
 
 // ===== WHY TRUST DATA =====
 export const TRUST_ITEMS = [
-  { id: 1, icon: "fas fa-certificate", label: "Signia Certified Center" },
-  { id: 2, icon: "fas fa-user-doctor", label: "Team of Professional Audiologists" },
+
+  { id: 2, icon: "fas fa-user-doctor", label: " Professional Audiologists" },
   { id: 3, icon: "fas fa-microscope", label: "World Class Equipments" },
   { id: 4, icon: "fas fa-clock", label: "17+ Years of Experience" },
   { id: 5, icon: "fas fa-house-medical", label: "Home Visit Facility" },
@@ -266,16 +218,16 @@ export const TESTIMONIALS = [
 ];
 
 // ===== CERTIFICATIONS =====
-export const CERTIFICATIONS = [
-  { id: 1, icon: "fas fa-award" },
-  { id: 2, icon: "fas fa-medal" },
-  { id: 3, icon: "fas fa-certificate" },
-  { id: 4, icon: "fas fa-shield-halved" },
-  { id: 5, icon: "fas fa-ribbon" },
-  { id: 6, icon: "fas fa-star" },
-  { id: 7, icon: "fas fa-trophy" },
-  { id: 8, icon: "fas fa-check-circle" },
-];
+// export const CERTIFICATIONS = [
+//   { id: 1, icon: "fas fa-award" },
+//   { id: 2, icon: "fas fa-medal" },
+//   { id: 3, icon: "fas fa-certificate" },
+//   { id: 4, icon: "fas fa-shield-halved" },
+//   { id: 5, icon: "fas fa-ribbon" },
+//   { id: 6, icon: "fas fa-star" },
+//   { id: 7, icon: "fas fa-trophy" },
+//   { id: 8, icon: "fas fa-check-circle" },
+// ];
 
 // ===== BLOGS DATA =====
 export const BLOGS = [
@@ -314,33 +266,35 @@ export const CONTACT_INFO = {
   phone1: "+91 8210394248",
   phone2: "+91 8210394248",
   whatsapp: "8210394248",
+  mapUrl: "https://www.google.com/maps?q=23.38892,85.33644",
   locations: [
     {
       id: 1,
       label: "Indian Speech & Hearing Clinic",
       address:
-        "Indian Speech and Hearing Clinic, 1st floor, Arctic Mall, Bariatu Road, Ranchi-834009, Ranchi, India, Jharkhand",
+        "1st floor, Arctic Mall, Bariatu Road, Ranchi - 834009, Jharkhand, India",
+      mapUrl: "https://www.google.com/maps?q=23.38892,85.33644",
     },
   ],
 };
 
 // ===== FOOTER LINKS =====
 export const FOOTER_COMPANY_LINKS = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Hearing Aids Types", href: "#" },
-  { label: "Hearing Aids Models", href: "#products" },
+  { label: "Hearing Devices Types", href: "#brands" },
+  { label: "Hearing Devices Models", href: "#brands" },
   { label: "Blog", href: "#blogs" },
   { label: "Contact Us", href: "#contact" },
 ];
 
 export const FOOTER_SERVICE_LINKS = [
-  { label: "Hearing Test", href: "#" },
-  { label: "Hearing Aid", href: "#" },
-  { label: "Hearing Care", href: "#" },
-  { label: "Speech Therapy", href: "#" },
-  { label: "ENT Services", href: "#" },
-  { label: "BERA Test", href: "#" },
+  { label: "Hearing Test", href: "#services" },
+  { label: "Hearing Aid", href: "#services" },
+  { label: "Hearing Care", href: "#services" },
+  { label: "Speech Therapy", href: "#services" },
+  { label: "ENT Services", href: "#services" },
+  { label: "BERA Test", href: "#services" },
 ];
 
 // ===== HEARING BRANDS =====
@@ -375,6 +329,18 @@ export const HEARING_BRANDS = [
         icon: "fas fa-eye-slash",
         desc: "Virtually invisible custom-fit aid built into the ear canal. Personalized fit crafted from your ear impression with premium Paradise sound quality.",
       },
+      {
+        name: "Sky Marvel",
+        type: "BTE (Children)",
+        icon: "fas fa-child",
+        desc: "Specially designed for children with hearing loss. Durable, colorful, and built for active kids — supports speech development and learning in classroom environments.",
+      },
+      {
+        name: "Bolero Marvel",
+        type: "BTE (Family)",
+        icon: "fas fa-people-group",
+        desc: "A robust BTE hearing aid ideal for the whole family. Reliable performance in everyday situations with excellent speech understanding and Bluetooth streaming.",
+      },
     ],
   },
   {
@@ -407,6 +373,18 @@ export const HEARING_BRANDS = [
         icon: "fas fa-circle-dot",
         desc: "Ready-to-wear invisible aid — no custom fitting needed. The smallest rechargeable hearing aid available, fitting instantly and comfortably.",
       },
+      {
+        name: "Active Pro",
+        type: "Ear-level (Family)",
+        icon: "fas fa-people-group",
+        desc: "Designed for active lifestyles — ideal for working adults and elderly family members. Delivers natural sound quality with a modern, discreet design.",
+      },
+      {
+        name: "Fun SP",
+        type: "BTE (Children)",
+        icon: "fas fa-child",
+        desc: "Powerful BTE hearing aid built for children with moderate to profound hearing loss. Durable, easy to handle, and supports speech and language development.",
+      },
     ],
   },
   {
@@ -433,6 +411,12 @@ export const HEARING_BRANDS = [
         icon: "fas fa-brain",
         desc: "Machine learning adapts to your personal preferences over time. SoundSense Learn creates a truly personalized hearing experience unique to you.",
       },
+      {
+        name: "Widex Easywear",
+        type: "BTE (Family)",
+        icon: "fas fa-people-group",
+        desc: "Straightforward and reliable, ideal for elderly family members or first-time hearing aid users. Simple controls with excellent sound clarity.",
+      },
     ],
   },
   {
@@ -458,6 +442,18 @@ export const HEARING_BRANDS = [
         type: "Custom IIC/CIC",
         icon: "fas fa-eye-slash",
         desc: "Invisible custom hearing aid with the full BrainHearing chip inside. Personalized fit crafted from your ear impression for all-day comfort.",
+      },
+      {
+        name: "Oticon Play PX",
+        type: "BTE (Children)",
+        icon: "fas fa-child",
+        desc: "Purpose-built for children. Rugged, water-resistant, and packed with features to help kids hear and learn better in school and at play.",
+      },
+      {
+        name: "Oticon Xceed",
+        type: "BTE Power (Family)",
+        icon: "fas fa-people-group",
+        desc: "The world's most powerful hearing aid for severe to profound hearing loss. Ideal for elderly family members who need maximum amplification with no compromise on clarity.",
       },
     ],
   },
@@ -491,6 +487,12 @@ export const HEARING_BRANDS = [
         icon: "fas fa-low-vision",
         desc: "Completely invisible sitting deep in the ear canal. Custom-fit for a comfortable all-day wear with natural sound pickup from the ear's position.",
       },
+      {
+        name: "Muse iQ",
+        type: "BTE (Family)",
+        icon: "fas fa-people-group",
+        desc: "A dependable, full-featured BTE hearing aid suitable for all family members. Excellent speech clarity with easy volume and program controls.",
+      },
     ],
   },
   {
@@ -523,6 +525,12 @@ export const HEARING_BRANDS = [
         icon: "fas fa-volume-up",
         desc: "Made for severe to profound hearing loss. Superpower performance with direct iPhone streaming and a long-lasting rechargeable option.",
       },
+      {
+        name: "ReSound Key",
+        type: "BTE (Family)",
+        icon: "fas fa-people-group",
+        desc: "An accessible and affordable hearing aid for the whole family. Reliable sound performance with simple controls suited to users of all ages.",
+      },
     ],
   },
   {
@@ -548,6 +556,12 @@ export const HEARING_BRANDS = [
         type: "Custom ITC",
         icon: "fas fa-circle",
         desc: "Custom in-the-ear hearing aid with a natural fit. Discreet design with solid performance for mild to moderately-severe hearing loss.",
+      },
+      {
+        name: "Stride P",
+        type: "BTE (Family)",
+        icon: "fas fa-people-group",
+        desc: "A powerful and user-friendly BTE hearing aid suited to the whole family. Handles moderate to severe hearing loss with clear, comfortable amplification.",
       },
     ],
   },

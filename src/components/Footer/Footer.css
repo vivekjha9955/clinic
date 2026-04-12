@@ -154,3 +154,20 @@ background: #3d0000;   /* dark maroon footer */
     padding: 40px 0 30px;
   }
 }
+
+.footer__map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 6px;
+  transition: opacity 0.2s;
+}
+
+.footer__map-link:hover {
+  opacity: 0.8;
+  color: var(--accent);
+}

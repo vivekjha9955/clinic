@@ -45,8 +45,8 @@ const Brands = () => {
       <div className="container">
         <SectionHeader
           tag="Top Brands"
-          title="Hearing Aid Companies & Models"
-          subtitle="We offer hearing aids from the world's leading brands — each with unique technology to match your lifestyle and hearing needs."
+          title="Hearing Devices & Models"
+          subtitle="We offer hearing devices from the world's leading brands — each with unique technology to match your lifestyle and hearing needs."
         />
         <div className="brands__grid">
           {HEARING_BRANDS.map((b) => (
