@@ -244,6 +244,13 @@ export const HEARING_BRANDS = [
       { name: "ReSound ONE",   type: "RIC",          image: "ReSoundONE.jpg",    icon: "fas fa-fingerprint", desc: "Unique microphone inside the ear canal. M&RIE design delivers unmatched spatial awareness." },
       { name: "ENZO Q",        type: "BTE Power",    image: "ENZOQ.jpg",         icon: "fas fa-volume-up",   desc: "Made for severe to profound hearing loss. Superpower performance with direct iPhone streaming." },
       { name: "ReSound Key",   type: "BTE (Family)", image: "ReSoundKey.jpg",    icon: "fas fa-people-group",desc: "An accessible and affordable hearing aid for the whole family. Reliable sound with simple controls." },
+      {
+  name: "ReSound Nexia ITC",
+  type: "ITC",
+  image: "ResoundNexiaITC.jpg",
+  icon: "fas fa-ear-listen",
+  desc: "A custom In-the-Canal hearing aid from the ReSound Nexia family designed for users who want a discreet fit with clear speech understanding, natural sound quality, and all-day wearing comfort. Ideal for mild to moderately-severe hearing loss."
+}
     ],
   },
   {

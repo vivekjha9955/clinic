@@ -5,6 +5,7 @@ import SectionHeader from "../Common/SectionHeader";
 import BrandDetail from "./BrandDetail";
 
 // Brand logos
+import ResoundNexiaITCImg from "../../assets/ResoundNexiaITC.jpg";
 import phonakImg from "../../assets/phonak.png";
 import signiaImg from "../../assets/signia.jpg";
 import widexImg from "../../assets/widex.jpg";
@@ -70,6 +71,7 @@ const MODEL_IMAGES = {
   "Phonak_Virto Paradise": VirtoParadiseImg,
   "Phonak_Sky Marvel": SkyMarvelImg,
   "Phonak_Bolero Marvel": BoleroMarvelImg,
+  "ResoundNexiaITC.jpg": ResoundNexiaITCImg,
 
   "Signia_Pure Charge & Go IX": SigniaPureChargeImg,
   "Signia_Styletto IX": SigniaStylettoIXImg,

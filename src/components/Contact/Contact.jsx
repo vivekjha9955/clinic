@@ -19,7 +19,7 @@ const Contact = () => {
     e.preventDefault();
 
     const text =
-      `Hello Indian Speech & Hearing Clinic! 👋\n\n` +
+      `Hello Indian Speech and Hearing Clinic! 👋\n\n` +
       `I would like to book an appointment. Here are my details:\n\n` +
       `*Name:* ${form.name}\n` +
       `*Email:* ${form.email || "Not provided"}\n` +

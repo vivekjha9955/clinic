@@ -22,7 +22,7 @@ const Navbar = ({ onFAQClick, onBrandSelect, onServiceSelect }) => {
           <a href="#home" className="navbar__logo">
             <img src={logo} alt="Indian Speech & Hearing Clinic Logo" className="navbar__logo-img" />
             <span className="navbar__logo-text">
-              Indian Speech &amp; Hearing<span className="navbar__logo-accent"> Clinic</span>
+              Indian Speech and Hearing<span className="navbar__logo-accent"> Clinic</span>
             </span>
           </a>
 

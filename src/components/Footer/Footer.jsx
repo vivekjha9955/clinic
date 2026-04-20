@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer__brand">
             <div className="footer__logo">
-              Indian Speech &amp; Hearing<span> Clinic</span>
+              Indian Speech and Hearing<span> Clinic</span>
             </div>
             <div className="footer__unit">Trustable Enterprise</div>
             <p>

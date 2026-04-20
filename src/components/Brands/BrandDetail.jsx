@@ -16,7 +16,7 @@ import NaidaParadiseImg from "../../assets/NaidaParadise.jpg";
 import VirtoParadiseImg from "../../assets/VirtoParadise.jpg";
 import SkyMarvelImg from "../../assets/SkyMarvel.jpg";
 import BoleroMarvelImg from "../../assets/BoleroMarvel.jpg";
-
+import ResoundNexiaITCImg from "../../assets/ResoundNexiaITC.jpg";
 import SigniaPureChargeImg from "../../assets/SigniaPureCharge&GoIX.jpg";
 import SigniaInsioAXImg from "../../assets/SigniaInsioAX.jpg";
 import SigniaSilkImg from "../../assets/SigniaSilkCharge_Go.jpg";
@@ -66,6 +66,7 @@ const MODEL_IMAGES = {
   "Phonak_Naída Paradise": NaidaParadiseImg,
   "Phonak_Virto Paradise": VirtoParadiseImg,
   "Phonak_Sky Marvel": SkyMarvelImg,
+  "ResoundNexiaITC.jpg": ResoundNexiaITCImg,
   "Phonak_Bolero Marvel": BoleroMarvelImg,
 
   "Signia_Pure Charge & Go IX": SigniaPureChargeImg,
