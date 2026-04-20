@@ -9,14 +9,13 @@ import Services from "./components/Services/Services";
 import About from "./components/About/About";
 import Stats from "./components/Stats/Stats";
 import WhyTrust from "./components/WhyTrust/WhyTrust";
-
 import Testimonials from "./components/Testimonials/Testimonials";
-// import Certifications from "./components/Certifications/Certifications";
 import Contact from "./components/Contact/Contact";
-// import Blogs from "./components/Blogs/Blogs";
+
 import Footer from "./components/Footer/Footer";
 import FloatingButtons from "./components/Common/FloatingButtons";
 import Brands from "./components/Brands/Brands";
+import HearingTypes from "./components/HearingTypes/HearingTypes";
 import FAQPage from "./components/FAQ/FAQ";
 import BrandDetail from "./components/Brands/BrandDetail";
 import ServiceDetail from "./components/Services/Servicedetails";
@@ -40,15 +39,14 @@ function App() {
       <About />
       <Stats />
       <Brands />
+      <HearingTypes />
       <WhyTrust />
       <Testimonials />
-      {/* <Certifications /> */}
       <Contact />
-      {/* <Blogs /> */}
+     
       <Footer />
       <FloatingButtons />
 
-      {/* Overlays */}
       {showFAQ && <FAQPage onClose={() => setShowFAQ(false)} />}
       {selectedBrand && (
         <BrandDetail

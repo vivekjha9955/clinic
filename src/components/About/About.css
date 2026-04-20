@@ -1,144 +1,120 @@
 .about {
-  background: var(--section-bg);
+  padding: 90px 0;
+  background: #fffdf5;
 }
 
-.about__grid {
+.about__wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 50px;
   align-items: center;
+  margin-top: 50px;
 }
 
-.about__img-wrap {
-  position: relative;
-}
-
-.about__img-main {
+.about__image {
   width: 100%;
-  border-radius: 20px;
-  height: 420px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+  height: 100%;
+}
+
+.about__image img {
+  width: 100%;
+  height: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+.about__content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #7b0000;
+  margin-bottom: 18px;
+}
+
+.about__content p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #334155;
+  margin-bottom: 18px;
+}
+
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.about__highlight-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(123, 0, 0, 0.08);
+  border: 1px solid rgba(123, 0, 0, 0.08);
+}
+.about__image,
+.about-image,
+.about-img {
+  width: 100%;
+  height: 100%;   /* adjust if needed */
+  background: #fff;
+  border-radius: 24px;
+  overflow: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
-.about__img-main i {
-  font-size: 120px;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.about__badge {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: var(--accent);
-  color: #fff;
-  padding: 20px 24px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
-}
-
-.about__badge-num {
-  font-size: 36px;
-  font-weight: 800;
-  display: block;
-  line-height: 1;
-}
-
-.about__badge-label {
-  font-size: 13px;
-  margin-top: 4px;
-  display: block;
-}
-
-.about__content {
-  padding-bottom: 20px;
-}
-
-.about__title {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  color: var(--text);
-  margin: 12px 0 20px;
-  line-height: 1.3;
-}
-
-.about__content > p {
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 14px;
-  font-size: 15px;
-}
-
-/* Location block */
-.about__location {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: #fff;
-  border: 1px solid #f0dede;
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin: 20px 0 24px;
-}
-
-.about__location > i {
-  color: var(--primary);
-  font-size: 20px;
-  margin-top: 3px;
-  flex-shrink: 0;
-}
-
-.about__location strong {
-  display: block;
-  font-size: 14px;
-  color: var(--text);
+.about__highlight-card h4 {
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  color: #0ea5e9;
+  margin-bottom: 8px;
 }
 
-.about__location p {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.5;
-  margin: 0 0 8px;
-}
-
-.about__map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--primary);
-  text-decoration: none;
-  transition: gap 0.2s;
-}
-
-.about__map-link:hover {
-  gap: 10px;
-  color: var(--primary-dark);
-}
-
-.about__btn {
-  margin-top: 4px;
+.about__highlight-card span {
+  font-size: 0.95rem;
+  color: #475569;
+  font-weight: 500;
 }
 
 @media (max-width: 992px) {
-  .about__grid {
+  .about__wrapper {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 35px;
   }
 
-  .about__badge {
-    position: static;
-    display: inline-block;
-    margin-top: 20px;
+  .about__image img {
+    max-height: 450px;
   }
 
-  .about__title {
-    font-size: 28px;
+  .about__highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .about {
+    padding: 70px 0;
+  }
+
+  .about__content h3 {
+    font-size: 1.5rem;
+  }
+
+  .about__content p {
+    font-size: 0.95rem;
+  }
+
+  .about__highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .about__highlight-card h4 {
+    font-size: 1.5rem;
   }
 }

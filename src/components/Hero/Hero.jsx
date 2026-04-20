@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="hero">
+    <section className="hero" id="home">
       <div
         className="hero__track"
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -26,26 +26,54 @@ const Hero = () => {
             className="hero__slide"
             style={{ background: slide.gradient }}
           >
+            <div className="hero__overlay"></div>
+
             <div className="hero__content">
+              {slide.tag && <span className="hero__tag">{slide.tag}</span>}
+
               <h1 className="hero__title">{slide.title}</h1>
               <p className="hero__subtitle">{slide.subtitle}</p>
-              <a href={slide.btnHref} className="btn-accent">
-                <i className={slide.btnIcon}></i>
-                {slide.btnText}
-              </a>
+
+              <div className="hero__actions">
+                <a href={slide.btnHref} className="btn-accent">
+                  <i className={slide.btnIcon}></i>
+                  {slide.btnText}
+                </a>
+
+                {slide.secondaryText && (
+                  <a href={slide.secondaryHref} className="btn-outline-light">
+                    <i className={slide.secondaryIcon}></i>
+                    {slide.secondaryText}
+                  </a>
+                )}
+              </div>
             </div>
+
             <div className="hero__deco">
-              <i className={slide.icon}></i>
+              <div className="hero__deco-ring hero__deco-ring--1"></div>
+              <div className="hero__deco-ring hero__deco-ring--2"></div>
+              <div className="hero__deco-icon">
+                <i className={slide.icon}></i>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Arrows */}
-      <button className="hero__btn hero__btn--prev" onClick={prev} aria-label="Previous">
+      <button
+        className="hero__btn hero__btn--prev"
+        onClick={prev}
+        aria-label="Previous"
+      >
         <i className="fas fa-chevron-left"></i>
       </button>
-      <button className="hero__btn hero__btn--next" onClick={next} aria-label="Next">
+
+      <button
+        className="hero__btn hero__btn--next"
+        onClick={next}
+        aria-label="Next"
+      >
         <i className="fas fa-chevron-right"></i>
       </button>
 
@@ -60,7 +88,7 @@ const Hero = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
