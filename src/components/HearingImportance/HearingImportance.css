@@ -1,0 +1,174 @@
+.hearing-importance {
+  background: linear-gradient(180deg, #f8f9ff 0%, #f3f6ff 100%);
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.importance-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.importance-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.importance-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.importance-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.importance-divider span {
+  width: 60px;
+  height: 2px;
+  background: #312e81;
+  border-radius: 999px;
+}
+
+.importance-divider i {
+  font-size: 1.1rem;
+  color: #06b6d4;
+}
+
+.importance-subtitle {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #64748b;
+}
+
+.importance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+.importance-card {
+  padding: 42px 24px 34px;
+  text-align: center;
+  color: #ffffff;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.importance-card:hover {
+  transform: translateY(-6px);
+  filter: brightness(1.05);
+}
+
+.importance-card-1 {
+  background: linear-gradient(180deg, #2f2a92 0%, #312e81 100%);
+}
+
+.importance-card-2 {
+  background: linear-gradient(180deg, #4338ca 0%, #3730a3 100%);
+}
+
+.importance-card-3 {
+  background: linear-gradient(180deg, #312e81 0%, #2f2a92 100%);
+}
+
+.importance-card-4 {
+  background: linear-gradient(180deg, #4338ca 0%, #312e81 100%);
+}
+
+.importance-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.importance-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.importance-card p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 240px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .importance-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .importance-card {
+    border-radius: 20px;
+    min-height: 280px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  }
+}
+
+@media (max-width: 768px) {
+  .hearing-importance {
+    padding: 70px 0;
+  }
+
+  .importance-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .importance-card {
+    min-height: auto;
+    padding: 34px 20px;
+  }
+
+  .importance-icon {
+    width: 76px;
+    height: 76px;
+    font-size: 2rem;
+    margin-bottom: 18px;
+  }
+
+  .importance-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .importance-card p {
+    font-size: 0.92rem;
+  }
+}

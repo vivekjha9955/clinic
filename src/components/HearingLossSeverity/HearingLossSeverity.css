@@ -1,0 +1,175 @@
+.hearing-loss-severity {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.severity-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.severity-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.severity-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.severity-title span {
+  color: #312e81;
+}
+
+.severity-subtitle {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #64748b;
+}
+
+.severity-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.severity-image-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.severity-image-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.severity-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.severity-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.severity-bar {
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  position: relative;
+  min-width: 180px;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.severity-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.severity-range {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #475569;
+  white-space: nowrap;
+}
+
+/* Severity Colors */
+.severity-mild {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+}
+
+.severity-moderate {
+  background: linear-gradient(90deg, #16a34a 0%, #65c466 100%);
+}
+
+.severity-mod-severe {
+  background: linear-gradient(90deg, #0ea5e9 0%, #67e8f9 100%);
+}
+
+.severity-severe {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.severity-profound {
+  background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .severity-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .severity-image-card {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hearing-loss-severity {
+    padding: 70px 0;
+  }
+
+  .severity-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .severity-bar {
+    width: 100% !important;
+    min-width: unset;
+    height: 44px;
+  }
+
+  .severity-range {
+    font-size: 0.95rem;
+  }
+
+  .severity-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .severity-title {
+    font-size: 1.8rem;
+  }
+
+  .severity-bar {
+    padding: 0 14px;
+  }
+
+  .severity-label {
+    font-size: 0.9rem;
+  }
+}

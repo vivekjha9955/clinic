@@ -1,79 +1,181 @@
+/* =========================================
+   HEARING TYPES SECTION
+========================================= */
 .hearing-types {
   background: linear-gradient(180deg, #f8f9ff 0%, #f4f7fb 100%);
+  position: relative;
+  z-index: 1;
+  padding: 90px 0;
 }
 
-/* =========================
+.section-heading {
+  text-align: left;
+  margin-bottom: 44px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.12;
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 760px;
+  line-height: 1.8;
+}
+
+/* =========================================
    GRID
-========================= */
+========================================= */
 .ht-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  gap: 32px;
 }
 
-/* =========================
+/* =========================================
    CARD
-========================= */
+========================================= */
 .ht-card {
-  background: var(--ht-card-bg);
-  border-radius: 24px;
-  padding: 28px 22px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  background: linear-gradient(135deg, #2f2a92 0%, #372fa3 55%, #4338ca 100%);
+  border-radius: 22px;
+  min-height: 320px;
+  padding: 28px 24px;
   position: relative;
   overflow: hidden;
-  min-height: 340px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.12), 0 18px 34px rgba(15, 23, 42, 0.16);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.ht-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
-  pointer-events: none;
+/* KILL ALL possible shapes */
+.ht-card::before,
+.ht-card::after,
+.ht-card *::before,
+.ht-card *::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .ht-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.18);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 0 rgba(0, 0, 0, 0.12), 0 26px 42px rgba(15, 23, 42, 0.22);
+}
+
+/* =========================================
+   DEFAULT CONTENT
+========================================= */
+.ht-card__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  transition: all 0.35s ease;
+}
+
+.ht-card:hover .ht-card__content {
+  transform: scale(0.96);
+  opacity: 0.08;
 }
 
 .ht-card__icon-wrap {
-  width: 92px;
-  height: 92px;
-  background: rgba(255, 255, 255, 0.16);
+  width: 118px;
+  height: 118px;
+  background: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.24);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+  margin: 0 auto 24px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
 }
 
 .ht-card__icon-wrap i {
-  font-size: 36px;
-  color: #fff;
+  font-size: 42px;
+  color: #2f2a92;
+}
+
+.ht-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .ht-card__label {
   font-family: "Poppins", sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-  line-height: 1.35;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0 10px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   HOVER CONTENT
+========================================= */
+.ht-card__hover {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(30, 27, 110, 0.96);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: all 0.35s ease;
+  border-radius: 22px;
+}
+
+.ht-card:hover .ht-card__hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.ht-card__hover .ht-card__label {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding: 0;
 }
 
 .ht-card__desc {
-  font-size: 14px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.9);
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.96);
   margin: 0 0 16px;
   max-width: 95%;
 }
@@ -82,10 +184,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.14);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.24);
-  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 8px 16px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
@@ -95,27 +197,26 @@
 .ht-card__cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.16);
-  color: #fff;
-  font-size: 13px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: 14px;
   font-weight: 700;
-  padding: 10px 18px;
+  padding: 12px 22px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.28);
   transition: all 0.3s ease;
-  margin-top: auto;
 }
 
-.ht-card:hover .ht-card__cta {
-  background: #fff;
-  color: var(--ht-accent);
-  gap: 12px;
+.ht-card__cta:hover {
+  background: #ffffff;
+  color: #2f2a92;
+  gap: 14px;
 }
 
-/* =========================
+/* =========================================
    DETAIL PAGE
-========================= */
+========================================= */
 .ht-detail-page {
   position: fixed;
   inset: 0;
@@ -136,14 +237,11 @@
   }
 }
 
-/* =========================
-   DETAIL HEADER
-========================= */
 .ht-detail-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.9);
 }
@@ -161,9 +259,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--ht-soft);
+  background: #eef2ff;
   border: none;
-  color: var(--ht-accent);
+  color: #2f2a92;
   padding: 11px 18px;
   border-radius: 999px;
   font-family: "Poppins", sans-serif;
@@ -187,24 +285,25 @@
 }
 
 .ht-detail-header__icon {
-  width: 62px;
-  height: 62px;
-  background: var(--ht-soft);
+  width: 70px;
+  height: 70px;
+  background: #eef2ff;
   border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .ht-detail-header__icon i {
-  font-size: 28px;
-  color: var(--ht-accent);
+  font-size: 30px;
+  color: #2f2a92;
 }
 
 .ht-detail-header__title {
   font-family: "Playfair Display", serif;
-  font-size: 30px;
+  font-size: 32px;
   color: #0f172a;
   margin: 0 0 4px;
 }
@@ -216,20 +315,14 @@
   line-height: 1.6;
 }
 
-/* =========================
-   DETAIL BODY
-========================= */
 .ht-detail-body {
-  padding: 36px 0 70px;
+  padding: 40px 0 80px;
 }
 
-/* =========================
-   OVERVIEW
-========================= */
 .ht-detail-overview {
-  background: var(--ht-gradient);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   border-radius: 28px;
-  padding: 36px;
+  padding: 38px;
   margin-bottom: 36px;
   box-shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
   display: grid;
@@ -241,19 +334,18 @@
 
 .ht-detail-tag {
   display: inline-block;
-  background: var(--ht-soft);
-  color: var(--ht-accent);
+  background: #eef2ff;
+  color: #2f2a92;
   font-size: 12px;
   font-weight: 700;
   padding: 7px 14px;
   border-radius: 999px;
-  letter-spacing: 0.2px;
   margin-bottom: 16px;
 }
 
 .ht-detail-overview__title {
   font-family: "Playfair Display", serif;
-  font-size: 34px;
+  font-size: 36px;
   color: #0f172a;
   margin: 0 0 14px;
   line-height: 1.2;
@@ -286,9 +378,8 @@
 .ht-info-label {
   font-size: 11px;
   font-weight: 700;
-  color: var(--ht-accent);
+  color: #2f2a92;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
 }
 
 .ht-info-value {
@@ -303,7 +394,7 @@
   align-items: flex-start;
   gap: 10px;
   background: #ffffff;
-  border-left: 4px solid var(--ht-accent);
+  border-left: 4px solid #2f2a92;
   padding: 14px 16px;
   border-radius: 0 14px 14px 0;
   font-size: 14px;
@@ -312,13 +403,13 @@
 }
 
 .ht-detail-suitable i {
-  color: var(--ht-accent);
+  color: #2f2a92;
   margin-top: 2px;
   flex-shrink: 0;
 }
 
 .ht-detail-overview__img {
-  height: 300px;
+  height: 320px;
   background: #ffffff;
   border-radius: 24px;
   display: flex;
@@ -328,24 +419,21 @@
 }
 
 .ht-detail-overview__icon-circle {
-  width: 180px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
-  background: var(--ht-soft);
+  background: #eef2ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
 }
 
 .ht-detail-overview__icon-circle i {
-  font-size: 76px;
-  color: var(--ht-accent);
+  font-size: 78px;
+  color: #2f2a92;
 }
 
-/* =========================
-   PROS & CONS
-========================= */
 .ht-detail-pros-cons {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -412,7 +500,6 @@
   color: #10b981;
   margin-top: 3px;
   flex-shrink: 0;
-  font-size: 15px;
 }
 
 .ht-cons__list li i {
@@ -422,11 +509,8 @@
   font-size: 8px;
 }
 
-/* =========================
-   CTA
-========================= */
 .ht-detail-cta {
-  background: var(--ht-gradient);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   border-radius: 28px;
   padding: 34px;
   display: flex;
@@ -457,7 +541,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--ht-accent);
+  background: #2f2a92;
   color: #fff;
   padding: 14px 24px;
   border-radius: 999px;
@@ -474,9 +558,19 @@
   box-shadow: 0 12px 22px rgba(15, 23, 42, 0.12);
 }
 
-/* =========================
+/* =========================================
    RESPONSIVE
-========================= */
+========================================= */
+@media (max-width: 1200px) {
+  .ht-grid {
+    gap: 26px;
+  }
+
+  .ht-card {
+    min-height: 300px;
+  }
+}
+
 @media (max-width: 1100px) {
   .ht-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -491,11 +585,23 @@
   }
 
   .ht-detail-overview__img {
-    height: 240px;
+    height: 250px;
   }
 }
 
 @media (max-width: 768px) {
+  .hearing-types {
+    padding: 70px 0;
+  }
+
+  .section-heading {
+    text-align: center;
+  }
+
+  .section-subtitle {
+    margin: 0 auto;
+  }
+
   .ht-detail-pros-cons {
     grid-template-columns: 1fr;
   }
@@ -527,29 +633,27 @@
 @media (max-width: 540px) {
   .ht-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
   }
 
   .ht-card {
-    min-height: auto;
-    padding: 24px 18px 20px;
+    min-height: 270px;
+    padding: 22px 16px;
   }
 
   .ht-card__icon-wrap {
-    width: 74px;
-    height: 74px;
+    width: 92px;
+    height: 92px;
   }
 
-  .ht-card__icon-wrap i {
-    font-size: 28px;
-  }
-
-  .ht-card__label {
-    font-size: 18px;
+  .ht-card__label,
+  .ht-card__hover .ht-card__label {
+    font-size: 20px;
   }
 
   .ht-card__desc {
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .ht-detail-header__inner {
