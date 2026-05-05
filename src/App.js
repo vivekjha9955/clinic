@@ -20,6 +20,10 @@ import ContactPage from "./components/ContactPage/ContactPage";
 import BrandDetail from "./components/Brands/BrandDetail";
 import ServiceDetail from "./components/Services/Servicedetails";
 import QuickEnquiry from "./components/Common/QuickEnquiry";
+// import SpeechTherapy from "./components/SpeechTherapy/SpeechTherapySection";
+import HearingLossSe from "./components/HearingImportance/HearingImportance"
+import HearingLoss from "./components/HearingLossSeverity/HearingLossSeverity";
+// import OccupationalTherapy from "./components/SpeechTherapy/SpeechTherapySection";
 function App() {
   const [showFAQ, setShowFAQ]           = useState(false);
   const [selectedBrand, setSelectedBrand]   = useState(null);
@@ -91,15 +95,19 @@ function App() {
         onServiceSelect={openServiceDetail}
         onContactClick={openContactPage}
       />
+      <HearingLossSe/>
+      <HearingLoss/>
       <About />
       <Stats />
       <QuickEnquiry onClick={openContactPage} />
+            <HearingTypes onContactClick={openContactPage} />
       <Brands
         onBrandSelect={openBrandDetail}
         onContactClick={openContactPage}
       />
-      <HearingTypes onContactClick={openContactPage} />
+
       <WhyTrust />
+
       <Testimonials />
       <Contact />
       <Footer />

@@ -1,26 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Hero.css";
 import { HERO_SLIDES } from "../../data/constants";
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+  const trackRef = useRef(null);
+  const total = HERO_SLIDES.length;
 
   const goTo = (idx) => setCurrent(idx);
-  const prev = () =>
-    setCurrent((c) => (c - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  const next = () => setCurrent((c) => (c + 1) % HERO_SLIDES.length);
+  const prev = () => setCurrent((c) => (c - 1 + total) % total);
+  const next = () => setCurrent((c) => (c + 1) % total);
 
+  // Auto-play
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % HERO_SLIDES.length);
+      setCurrent((c) => (c + 1) % total);
     }, 5000);
-
     return () => clearInterval(timer);
+  }, [total]);
+
+  // Force reflow on resize — fixes mobile cut issue
+  useEffect(() => {
+    const handleResize = () => {
+      if (trackRef.current) {
+        // Trigger a repaint
+        trackRef.current.style.transition = "none";
+        requestAnimationFrame(() => {
+          if (trackRef.current) {
+            trackRef.current.style.transition = "";
+          }
+        });
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <section className="hero" id="home">
       <div
+        ref={trackRef}
         className="hero__track"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
@@ -30,12 +49,13 @@ const Hero = () => {
               src={slide.image}
               alt={slide.alt || `Hero Slide ${slide.id}`}
               className="hero__image"
+              draggable={false}
             />
           </div>
         ))}
       </div>
 
-      {/* Prev Button */}
+      {/* Prev */}
       <button
         className="hero__btn hero__btn--prev"
         onClick={prev}
@@ -44,7 +64,7 @@ const Hero = () => {
         <i className="fas fa-chevron-left"></i>
       </button>
 
-      {/* Next Button */}
+      {/* Next */}
       <button
         className="hero__btn hero__btn--next"
         onClick={next}
