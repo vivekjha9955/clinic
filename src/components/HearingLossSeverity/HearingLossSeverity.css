@@ -76,13 +76,19 @@
 
 .severity-bar {
   height: 46px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   padding: 0 18px;
   position: relative;
   min-width: 180px;
   box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.severity-bar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
 }
 
 .severity-label {
@@ -95,30 +101,38 @@
 
 .severity-range {
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #475569;
   white-space: nowrap;
 }
 
-/* Severity Colors */
+/* =========================================
+   MATCHED COLORS AS PER HEARING GRADE IMAGE
+   ========================================= */
+
+/* Mild = Green */
 .severity-mild {
-  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  background: linear-gradient(90deg, #2e9e44 0%, #49b64f 100%);
 }
 
+/* Moderate = Yellow/Gold */
 .severity-moderate {
-  background: linear-gradient(90deg, #16a34a 0%, #65c466 100%);
+  background: linear-gradient(90deg, #d7a81e 0%, #e4bd39 100%);
 }
 
+/* Moderately Severe = Orange */
 .severity-mod-severe {
-  background: linear-gradient(90deg, #0ea5e9 0%, #67e8f9 100%);
+  background: linear-gradient(90deg, #d98a34 0%, #e5a24c 100%);
 }
 
+/* Severe = Dark Orange */
 .severity-severe {
-  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(90deg, #cc6a2b 0%, #db7b39 100%);
 }
 
+/* Profound = Red */
 .severity-profound {
-  background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+  background: linear-gradient(90deg, #b73025 0%, #d63b2f 100%);
 }
 
 /* Responsive */

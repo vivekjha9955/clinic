@@ -1,232 +1,116 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Services.css";
 import SectionHeader from "../Common/SectionHeader";
-import ServiceDetail from "./Servicedetails";
+import AllServices from "./AllServices";
 
 import hearingTestImg from "../../assets/hearingtest.png";
 import hearingAidImg from "../../assets/hearingaid.png";
 import speechTherapyImg from "../../assets/speechtherapy.png";
 import hearingCareImg from "../../assets/hearingcare.png";
 
-const SERVICES_DATA = [
-  {
-    id: 1,
-    icon: "fas fa-microscope",
-    title: "Hearing Test",
-    category: "Diagnostic Service",
-    image: hearingTestImg,
-    description:
-      "Comprehensive hearing evaluations using advanced audiometric equipment to accurately identify the type and degree of hearing loss.",
-    shortFeatures: [
-      "Accurate diagnosis",
-      "Painless procedure",
-      "Audiogram report",
-      "Expert counselling",
-    ],
-  },
-  {
-    id: 2,
-    icon: "fas fa-headphones",
-    title: "Hearing Aid",
-    category: "Device & Fitting",
-    image: hearingAidImg,
-    description:
-      "Premium hearing aid consultation, trial, fitting, programming, and after-care from leading global hearing aid brands.",
-    shortFeatures: [
-      "Top global brands",
-      "Trial available",
-      "Custom fitting",
-      "After-sales support",
-    ],
-  },
-  {
-    id: 3,
-    icon: "fas fa-comments",
-    title: "Speech Therapy",
-    category: "Therapy Service",
-    image: speechTherapyImg,
-    description:
-      "Personalised speech and language therapy for children and adults to improve communication, confidence, and daily interaction.",
-    shortFeatures: [
-      "All age groups",
-      "Certified therapists",
-      "Personalised sessions",
-      "Family guidance",
-    ],
-  },
-  {
-    id: 4,
-    icon: "fas fa-heart-pulse",
-    title: "Hearing Care",
-    category: "Long-Term Care",
-    image: hearingCareImg,
-    description:
-      "End-to-end hearing wellness support including counselling, hearing protection, tinnitus guidance, and ongoing device care.",
-    shortFeatures: [
-      "Holistic care",
-      "Tinnitus support",
-      "Regular monitoring",
-      "Preventive guidance",
-    ],
-  },
+import pureToneAudiometryImg from "../../assets/PureToneAudiometory.png";
+import speechAudiometryImg from "../../assets/SpeechAudiometry.png";
+import abrTestImg from "../../assets/ABRTest.png";
+import engTestImg from "../../assets/EngTest.png";
+import ecogImg from "../../assets/ECOG.png";
+import vempImg from "../../assets/VVEMP.png";
+import oaeImg from "../../assets/OAE.png";
 
-  /* ===== NEW SERVICES ADDED ===== */
+const Services = () => {
+  const [showAllServices, setShowAllServices] = useState(false);
+  const [current, setCurrent] = useState(0);
 
-  {
-    id: 5,
-    icon: "fas fa-wave-square",
-    title: "Pure Tone Audiometry",
-    category: "Diagnostic Service",
-    image: null,
-    description:
-      "Pure Tone Audiometry measures hearing sensitivity across different frequencies and helps identify the degree and type of hearing loss accurately.",
-    shortFeatures: [
-      "Hearing threshold test",
-      "Detailed audiogram",
-      "Adult & child-friendly",
-      "Accurate diagnosis",
-    ],
-  },
-  {
-    id: 6,
-    icon: "fas fa-comment-dots",
-    title: "Speech Audiometry",
-    category: "Diagnostic Service",
-    image: null,
-    description:
-      "Speech Audiometry evaluates how clearly you can hear and understand spoken words in real-world listening situations.",
-    shortFeatures: [
-      "Speech clarity test",
-      "Word recognition",
-      "Supports hearing aid fitting",
-      "Real-life listening insight",
-    ],
-  },
-  {
-    id: 7,
-    icon: "fas fa-brain",
-    title: "Auditory Brainstem Response (ABR)",
-    category: "Advanced Diagnostic",
-    image: null,
-    description:
-      "ABR is an objective hearing test that measures how the hearing nerve and brainstem respond to sound, ideal for infants and difficult-to-test patients.",
-    shortFeatures: [
-      "Objective hearing test",
-      "Infant-friendly",
-      "No active response needed",
-      "Neural pathway analysis",
-    ],
-  },
-  {
-    id: 8,
-    icon: "fas fa-eye",
-    title: "Electronystagmography (ENG)",
-    category: "Balance & Vestibular Test",
-    image: null,
-    description:
-      "ENG records involuntary eye movements to assess the balance system and help diagnose vertigo, dizziness, and vestibular disorders.",
-    shortFeatures: [
-      "Vertigo evaluation",
-      "Balance system check",
-      "Eye movement recording",
-      "Vestibular assessment",
-    ],
-  },
-  {
-    id: 9,
-    icon: "fas fa-bolt",
-    title: "Electrocochleography (ECoG)",
-    category: "Advanced Diagnostic",
-    image: null,
-    description:
-      "ECoG is an advanced objective inner ear test used to assess cochlear and auditory nerve function, especially in suspected Ménière’s disease.",
-    shortFeatures: [
-      "Cochlear function test",
-      "Inner ear assessment",
-      "Ménière’s support",
-      "Objective measurement",
-    ],
-  },
-  {
-    id: 10,
-    icon: "fas fa-sliders",
-    title: "Vestibular Evoked Myogenic Potential (VEMP)",
-    category: "Balance & Vestibular Test",
-    image: null,
-    description:
-      "VEMP is a specialised vestibular test that evaluates balance organ pathways through sound-triggered muscle response recordings.",
-    shortFeatures: [
-      "Vestibular pathway test",
-      "Objective balance test",
-      "Dizziness support",
-      "Advanced vestibular assessment",
-    ],
-  },
-  {
-    id: 11,
-    icon: "fas fa-volume-down",
-    title: "Otoacoustic Emission (OAE)",
-    category: "Diagnostic Service",
-    image: null,
-    description:
-      "OAE is a quick, painless, and objective test used to assess inner ear cochlear function, especially useful for newborn and pediatric screening.",
-    shortFeatures: [
-      "Quick screening",
-      "Newborn-friendly",
-      "Non-invasive",
-      "Cochlear function check",
-    ],
-  },
-];
+  const allServices = [
+    {
+      id: 1,
+      title: "Hearing Test",
+      image: hearingTestImg,
+      tag: "Most Popular",
+    },
+    {
+      id: 2,
+      title: "Hearing Aid",
+      image: hearingAidImg,
+      tag: "Top Choice",
+    },
+    {
+      id: 3,
+      title: "Speech Therapy",
+      image: speechTherapyImg,
+      tag: "Special Care",
+    },
+    {
+      id: 4,
+      title: "Hearing Care",
+      image: hearingCareImg,
+      tag: "Complete Support",
+    },
+    {
+      id: 5,
+      title: "Pure Tone Audiometry",
+      image: pureToneAudiometryImg,
+      tag: "Diagnostic",
+    },
+    {
+      id: 6,
+      title: "Speech Audiometry",
+      image: speechAudiometryImg,
+      tag: "Diagnostic",
+    },
+    {
+      id: 7,
+      title: "ABR Test",
+      image: abrTestImg,
+      tag: "Advanced Test",
+    },
+    {
+      id: 8,
+      title: "ENG Test",
+      image: engTestImg,
+      tag: "Balance Test",
+    },
+    {
+      id: 9,
+      title: "ECoG",
+      image: ecogImg,
+      tag: "Advanced Test",
+    },
+    {
+      id: 10,
+      title: "VEMP",
+      image: vempImg,
+      tag: "Vestibular",
+    },
+    {
+      id: 11,
+      title: "OAE",
+      image: oaeImg,
+      tag: "Quick Screening",
+    },
+  ];
 
-const ServiceCard = ({ service, onKnowMore }) => {
-  const { icon, title, category, image, description, shortFeatures } = service;
+  const groupedServices = [];
+  for (let i = 0; i < allServices.length; i += 3) {
+    groupedServices.push(allServices.slice(i, i + 3));
+  }
 
-  return (
-    <div className="service-card">
-      <div className="service-card__img-wrap">
-        {image ? (
-          <img src={image} alt={title} className="service-card__img" />
-        ) : (
-          <div className="service-card__icon-fallback">
-            <i className={icon}></i>
-          </div>
-        )}
-      </div>
-
-      <div className="service-card__body">
-        <span className="service-card__pill">
-          <i className="fas fa-shield-heart"></i> {category}
-        </span>
-
-        <h4 className="service-card__title">{title}</h4>
-
-        <p className="service-card__desc">{description}</p>
-
-        <div className="service-card__features">
-          {shortFeatures.map((feature, index) => (
-            <div className="service-feature" key={index}>
-              <i className="fas fa-circle-check"></i>
-              <span>{feature}</span>
-            </div>
-          ))}
-        </div>
-
-        <button className="know-more-btn" onClick={onKnowMore}>
-          Know More <i className="fas fa-arrow-right"></i>
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const Services = ({ onServiceSelect }) => {
-  const [selectedService, setSelectedService] = useState(null);
-
-  const handleSelect = (service) => {
-    setSelectedService(service);
-    if (onServiceSelect) onServiceSelect(service);
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % groupedServices.length);
   };
+
+  const prevSlide = () => {
+    setCurrent(
+      (prev) => (prev - 1 + groupedServices.length) % groupedServices.length
+    );
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % groupedServices.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [groupedServices.length]);
 
   return (
     <>
@@ -238,23 +122,97 @@ const Services = ({ onServiceSelect }) => {
             subtitle="Comprehensive hearing, speech, rehabilitation, vestibular, and advanced diagnostic services designed to deliver accurate diagnosis, personalised care, and long-term support for every age group."
           />
 
-          <div className="services__grid">
-            {SERVICES_DATA.map((service) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-                onKnowMore={() => handleSelect(service)}
-              />
-            ))}
+          <div className="services__highlight-bar">
+            <div className="services__highlight-icon">
+              <i className="fas fa-stethoscope"></i>
+            </div>
+            <div className="services__highlight-content">
+              <h3>These Are The Services We Provide</h3>
+              <p>
+                Explore our specialised hearing, speech, balance, and advanced
+                diagnostic services designed for complete personalised care.
+              </p>
+            </div>
+          </div>
+
+          <div className="services__intro">
+            <div className="services__carousel-wrap">
+              <div
+                className="services__carousel-track"
+                style={{ transform: `translateX(-${current * 100}%)` }}
+              >
+                {groupedServices.map((group, index) => (
+                  <div className="services__slide" key={index}>
+                    <div className="services__cards-row">
+                      {group.map((service) => (
+                        <div className="services__mini-card" key={service.id}>
+                          <span className="services__mini-badge">
+                            {service.tag}
+                          </span>
+
+                          <div className="services__mini-image-wrap">
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="services__mini-image"
+                            />
+                          </div>
+
+                          <h4 className="services__mini-title">
+                            {service.title}
+                          </h4>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className="services__nav services__nav--prev"
+                onClick={prevSlide}
+                aria-label="Previous services"
+              >
+                <i className="fas fa-chevron-left"></i>
+              </button>
+
+              <button
+                className="services__nav services__nav--next"
+                onClick={nextSlide}
+                aria-label="Next services"
+              >
+                <i className="fas fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div className="services__dots">
+              {groupedServices.map((_, index) => (
+                <button
+                  key={index}
+                  className={`services__dot ${
+                    current === index ? "services__dot--active" : ""
+                  }`}
+                  onClick={() => setCurrent(index)}
+                  aria-label={`Go to service group ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <div className="services__cta-wrap">
+              <button
+                className="services__cta-btn"
+                onClick={() => setShowAllServices(true)}
+              >
+                Know About All Our Services
+                <i className="fas fa-arrow-right"></i>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {selectedService && (
-        <ServiceDetail
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-        />
+      {showAllServices && (
+        <AllServices onClose={() => setShowAllServices(false)} />
       )}
     </>
   );

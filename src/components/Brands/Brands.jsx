@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Brands.css";
 import { HEARING_BRANDS } from "../../data/constants";
 import SectionHeader from "../Common/SectionHeader";
-import BrandDetail from "./BrandDetail";
 
 // Brand logos
 import phonakImg from "../../assets/phonak.png";
@@ -23,11 +22,22 @@ const BRAND_IMAGES = {
   Unitron: unitronImg,
 };
 
-const BrandCard = ({ brand, index, onOpen }) => {
+const BRAND_THEMES = {
+  Phonak: "phonak",
+  Signia: "signia",
+  Widex: "widex",
+  Oticon: "oticon",
+  Starkey: "starkey",
+  ReSound: "resound",
+  Unitron: "unitron",
+};
+
+const BrandCard = ({ brand, onOpen }) => {
   const image = BRAND_IMAGES[brand.brand];
+  const themeClass = BRAND_THEMES[brand.brand] || "default";
 
   return (
-    <div className={`brand-card brand-card--theme-${(index % 3) + 1}`}>
+    <div className={`brand-card brand-card--${themeClass}`}>
       <div className="brand-card__inner">
         <div className="brand-card__decor brand-card__decor--one"></div>
         <div className="brand-card__decor brand-card__decor--two"></div>
@@ -46,7 +56,8 @@ const BrandCard = ({ brand, index, onOpen }) => {
         <h3 className="brand-card__name">{brand.brand}</h3>
 
         <p className="brand-card__desc">
-          {brand.tagline || "Premium hearing aid solutions with advanced sound clarity and comfort."}
+          {brand.tagline ||
+            "Premium hearing aid solutions with advanced sound clarity and comfort."}
         </p>
 
         <div className="brand-card__meta">
@@ -66,39 +77,27 @@ const BrandCard = ({ brand, index, onOpen }) => {
   );
 };
 
-const Brands = () => {
-  const [selectedBrand, setSelectedBrand] = useState(null);
-
+const Brands = ({ onBrandSelect }) => {
   return (
-    <>
-      <section className="brands-section" id="brands">
-        <div className="container">
-          <SectionHeader
-            tag="Top Brands"
-            title="Hearing Devices & Models"
-            subtitle="Explore world-class hearing aid brands trusted by audiologists globally. Compare top manufacturers, view available models, and discover the best fit for your hearing needs."
-          />
-
-          <div className="brands-grid">
-            {HEARING_BRANDS.map((brand, index) => (
-              <BrandCard
-                key={brand.id}
-                brand={brand}
-                index={index}
-                onOpen={setSelectedBrand}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {selectedBrand && (
-        <BrandDetail
-          brand={selectedBrand}
-          onClose={() => setSelectedBrand(null)}
+    <section className="brands-section" id="brands">
+      <div className="container">
+        <SectionHeader
+          tag="Top Brands"
+          title="Hearing Devices & Models"
+          subtitle="Explore world-class hearing aid brands trusted by audiologists globally. Compare top manufacturers, view available models, and discover the best fit for your hearing needs."
         />
-      )}
-    </>
+
+        <div className="brands-grid">
+          {HEARING_BRANDS.map((brand) => (
+            <BrandCard
+              key={brand.id}
+              brand={brand}
+              onOpen={onBrandSelect}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

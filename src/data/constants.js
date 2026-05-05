@@ -1,4 +1,7 @@
 // ===== NAVIGATION DATA =====
+import FirstCaraousel from "../assets/FirstCaraousel.png";
+import SecondCarousel from "../assets/SecondCaraousel.png";
+import ThirdCaraousel from "../assets/ThirdCaraousel.png";
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -26,48 +29,18 @@ export const NAV_LINKS = [
 export const HERO_SLIDES = [
   {
     id: 1,
-    tag: "Trusted Hearing Care Experts",
-    gradient: "linear-gradient(135deg, #7a0000 0%, #9f0712 45%, #c1121f 100%)",
-    title: "Hear Better. Live Better.",
-    subtitle:
-      "Comprehensive hearing care solutions with expert audiologists, advanced testing, and personalised support for every age group.",
-    btnText: "Book Appointment",
-    btnIcon: "fas fa-calendar-check",
-    btnHref: "#contact",
-    secondaryText: "Explore Services",
-    secondaryIcon: "fas fa-stethoscope",
-    secondaryHref: "#services",
-    icon: "fas fa-ear-listen",
+    image: FirstCaraousel,
+    alt: "Hearing care awareness banner",
   },
   {
     id: 2,
-    tag: "Modern Digital Hearing Aids",
-    gradient: "linear-gradient(135deg, #1e3a8a 0%, #2563eb 45%, #38bdf8 100%)",
-    title: "Advanced Hearing Aids for Every Lifestyle",
-    subtitle:
-      "Discover discreet, rechargeable, Bluetooth-enabled hearing devices from leading global brands — expertly fitted for comfort and clarity.",
-    btnText: "View Hearing Devices",
-    btnIcon: "fas fa-headphones",
-    btnHref: "#brands",
-    secondaryText: "Hearing Aid Types",
-    secondaryIcon: "fas fa-wave-square",
-    secondaryHref: "#hearing-types",
-    icon: "fas fa-headphones-simple",
+    image: SecondCarousel,
+    alt: "Sensorineural hearing loss banner",
   },
   {
     id: 3,
-    tag: "17+ Years of Trusted Experience",
-    gradient: "linear-gradient(135deg, #0f766e 0%, #0ea5a4 45%, #22c55e 100%)",
-    title: "Personalised Hearing Solutions You Can Trust",
-    subtitle:
-      "From diagnosis to fitting and after-care, we help you regain confidence with reliable hearing solutions tailored to your unique needs.",
-    btnText: "Get Free Consultation",
-    btnIcon: "fas fa-user-doctor",
-    btnHref: "#contact",
-    secondaryText: "Why Choose Us",
-    secondaryIcon: "fas fa-circle-info",
-    secondaryHref: "#about",
-    icon: "fas fa-user-doctor",
+    image: ThirdCaraousel,
+    alt: "Advanced hearing aids banner",
   },
 ];
 
@@ -89,7 +62,7 @@ export const STATS = [
 
 // ===== WHY TRUST DATA =====
 export const TRUST_ITEMS = [
-  { id: 1, icon: "fas fa-certificate", label: "Signia Certified Center" },
+  // { id: 1, icon: "fas fa-certificate", label: "Signia Certified Center" },
   { id: 2, icon: "fas fa-user-doctor", label: "Team of Professional Audiologists" },
   { id: 3, icon: "fas fa-microscope", label: "World Class Equipments" },
   { id: 4, icon: "fas fa-clock", label: "17+ Years of Experience" },

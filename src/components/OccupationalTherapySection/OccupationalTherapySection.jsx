@@ -12,8 +12,7 @@ const OccupationalTherapySection = () => {
         id="occupational-therapy"
       >
         <div className="container">
-          <div className="occupational-therapy-wrap">
-            {/* Left Content */}
+          <div className="occupational-therapy-wrap occupational-therapy-wrap--full">
             <div className="occupational-therapy-content">
               <span className="occupational-therapy-tag">
                 DEVELOPMENT & FUNCTIONAL CARE
@@ -43,44 +42,6 @@ const OccupationalTherapySection = () => {
               >
                 Read More <i className="fas fa-arrow-right"></i>
               </button>
-            </div>
-
-            {/* Right Card */}
-            <div className="occupational-therapy-card">
-              <div className="occupational-therapy-icon">
-                <i className="fas fa-hands-helping"></i>
-              </div>
-
-              <h3>Occupational Therapy Program</h3>
-
-              <p>
-                Personalised sessions focused on improving sensory regulation,
-                motor planning, coordination, attention, and independence in
-                daily routines.
-              </p>
-
-              <div className="occupational-therapy-mini-list">
-                <div>
-                  <i className="fas fa-check-circle"></i> Sensory Integration
-                  Training
-                </div>
-                <div>
-                  <i className="fas fa-check-circle"></i> Fine Motor Skill
-                  Development
-                </div>
-                <div>
-                  <i className="fas fa-check-circle"></i> Handwriting & School
-                  Readiness
-                </div>
-                <div>
-                  <i className="fas fa-check-circle"></i> Self-Care & Daily
-                  Living Skills
-                </div>
-                <div>
-                  <i className="fas fa-check-circle"></i> Child-Focused
-                  Structured Sessions
-                </div>
-              </div>
             </div>
           </div>
         </div>

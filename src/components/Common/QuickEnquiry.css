@@ -1,0 +1,30 @@
+.quick-enquiry {
+  position: fixed;
+  right: -60px; /* thoda aur bahar for bigger size */
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+
+  background: linear-gradient(135deg, #8b0000, #c62828);
+  color: #fff;
+
+  padding: 16px 40px;   /* 🔥 height + width increase */
+  font-size: 1.05rem;   /* 🔥 font bigger */
+  font-weight: 700;     /* bold premium feel */
+  letter-spacing: 0.6px;
+
+  border: none;
+  border-radius: 12px 12px 0 0;
+
+  cursor: pointer;
+  z-index: 9999;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.quick-enquiry:hover {
+  right: -45px; /* hover pe slide */
+  background: linear-gradient(135deg, #a00000, #e53935);
+  transform: translateY(-50%) rotate(-90deg) scale(1.05);
+}
