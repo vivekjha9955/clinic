@@ -7,7 +7,6 @@ import hearingAidImg from "../../assets/hearingaid.png";
 import speechTherapyImg from "../../assets/speechtherapy.png";
 import hearingCareImg from "../../assets/hearingcare.png";
 
-// NEW diagnostic service images
 import pureToneAudiometryImg from "../../assets/PureToneAudiometory.png";
 import speechAudiometryImg from "../../assets/SpeechAudiometry.png";
 import abrTestImg from "../../assets/ABRTest.png";
@@ -78,7 +77,7 @@ const SERVICES_DATA = [
     category: "Advanced Diagnostic",
     image: abrTestImg,
     description:
-      "ABR is an objective hearing test that measures how the hearing nerve and brainstem respond to sound, ideal for infants and difficult-to-test patients.",
+      "ABR is an objective hearing test that measures how the hearing nerve and brainstem respond to sound.",
   },
   {
     id: 8,
@@ -87,7 +86,7 @@ const SERVICES_DATA = [
     category: "Balance & Vestibular Test",
     image: engTestImg,
     description:
-      "ENG records involuntary eye movements to assess the balance system and help diagnose vertigo, dizziness, and vestibular disorders.",
+      "ENG records involuntary eye movements to assess the balance system.",
   },
   {
     id: 9,
@@ -96,7 +95,7 @@ const SERVICES_DATA = [
     category: "Advanced Diagnostic",
     image: ecogImg,
     description:
-      "ECoG is an advanced objective inner ear test used to assess cochlear and auditory nerve function, especially in suspected Ménière’s disease.",
+      "ECoG is an advanced objective inner ear test.",
   },
   {
     id: 10,
@@ -105,7 +104,7 @@ const SERVICES_DATA = [
     category: "Balance & Vestibular Test",
     image: vempImg,
     description:
-      "VEMP is a specialised vestibular test that evaluates balance organ pathways through sound-triggered muscle response recordings.",
+      "VEMP evaluates balance organ pathways.",
   },
   {
     id: 11,
@@ -114,7 +113,7 @@ const SERVICES_DATA = [
     category: "Diagnostic Service",
     image: oaeImg,
     description:
-      "OAE is a quick, painless, and objective test used to assess inner ear cochlear function, especially useful for newborn and pediatric screening.",
+      "OAE assesses inner ear cochlear function.",
   },
 ];
 
@@ -125,7 +124,15 @@ const ServiceCard = ({ service, onReadDetail }) => {
     <div className="all-service-card">
       <div className="all-service-card__img-wrap">
         {image ? (
-          <img src={image} alt={title} className="all-service-card__img" />
+          <img
+            src={image}
+            alt={title}
+            className={`all-service-card__img ${
+              title === "Pure Tone Audiometry"
+                ? "all-service-card__img--contain"
+                : ""
+            }`}
+          />
         ) : (
           <div className="all-service-card__icon-fallback">
             <i className={icon}></i>
@@ -198,8 +205,7 @@ const AllServices = ({ onClose }) => {
               <div>
                 <h1 className="all-services-header__title">All Services</h1>
                 <p className="all-services-header__sub">
-                  Explore our complete range of hearing, speech, rehabilitation,
-                  vestibular, and advanced diagnostic services.
+                  Explore our complete range of hearing services.
                 </p>
               </div>
             </div>
