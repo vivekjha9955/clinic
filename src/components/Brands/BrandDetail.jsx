@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import "./BrandDetail.css";
 
 // Brand logos
-import phonakImg from "../../assets/phonak.png";
-import signiaImg from "../../assets/signia.jpg";
-import widexImg from "../../assets/widex.jpg";
-import oticonImg from "../../assets/Oticon-Hearing-Aids.jpg";
-import starkeyImg from "../../assets/starkey.jpg";
-import resoundImg from "../../assets/resound.png";
-import unitronImg from "../../assets/unitron.jpg";
-
+import phonakImg from "../../assetsSecond/phonak.png";
+import signiaImg from "../../assetsSecond/signia.jpg";
+import widexImg from "../../assetsSecond/widex.jpg";
+import oticonImg from "../../assetsSecond/oticon.png";
+import starkeyImg from "../../assetsSecond/Starkey.png";
+import resoundImg from "../../assetsSecond/Resound.jpg";
+import unitronImg from "../../assetsSecond/unitron.png";
 // Model images
 import AudioParadiseImg from "../../assets/AudioParadise.jpg";
 import NaidaParadiseImg from "../../assets/NaidaParadise.jpg";

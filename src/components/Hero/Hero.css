@@ -1,163 +1,88 @@
-/* =========================
-   HERO WRAPPER
-========================= */
+/* HERO */
 .hero {
   position: relative;
   width: 100%;
+  height: 55vh;
+  min-height: 260px;
+  max-height: 500px;
   overflow: hidden;
   background: #ffffff;
 }
 
-/* =========================
-   TRACK
-========================= */
+/* TRACK */
 .hero__track {
   display: flex;
-  transition: transform 0.8s ease-in-out;
-  /* width must be exact — each slide is 100vw */
-  will-change: transform;
+  height: 100%;
+  transition: transform 0.8s ease;
 }
 
-/* =========================
-   SLIDE
-========================= */
+/* SLIDE */
 .hero__slide {
-  /* Take exactly full viewport width — never more, never less */
   min-width: 100%;
-  max-width: 100%;
-  width: 100%;
-  flex-shrink: 0;
-  overflow: hidden;
-  background: #ffffff;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* =========================
-   IMAGE
-   Key fix: use aspect-ratio so the
-   image NEVER gets clipped regardless
-   of screen width.
-========================= */
+/* IMAGE — NO CUT */
 .hero__image {
   width: 100%;
-  height: auto;
-  display: block;
-  /* cover fills the slide; change to contain if your
-     banners have important edge content */
-  object-fit: cover;
-  object-position: center center;
+  height: 100%;
+  object-fit: contain;   /* 🔥 IMPORTANT */
+  object-position: center;
+  transition: transform 1s ease;
 }
 
-/* =========================
-   NAVIGATION BUTTONS
-========================= */
+/* subtle zoom animation */
+.hero__image.active {
+  transform: scale(1.02);
+}
+
+/* NAV */
 .hero__btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 20;
-  width: 44px;
-  height: 44px;
-  border: none;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: #800000;
-  font-size: 15px;
+  border: none;
+  background: rgba(255,255,255,0.9);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  transition: all 0.3s ease;
-  -webkit-tap-highlight-color: transparent;
 }
 
-.hero__btn:hover {
-  background: #fff;
-  transform: translateY(-50%) scale(1.08);
-}
+.hero__btn--prev { left: 10px; }
+.hero__btn--next { right: 10px; }
 
-.hero__btn:active {
-  transform: translateY(-50%) scale(0.92);
-}
-
-.hero__btn i { pointer-events: none; }
-
-.hero__btn--prev { left: 12px; }
-.hero__btn--next { right: 12px; }
-
-/* =========================
-   DOTS
-========================= */
+/* DOTS */
 .hero__dots {
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 20;
   display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(6px);
+  gap: 6px;
 }
 
 .hero__dot {
   width: 8px;
   height: 8px;
+  border-radius: 50%;
+  background: #ccc;
   border: none;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.3s ease;
-  -webkit-tap-highlight-color: transparent;
 }
-
-.hero__dot:hover { background: rgba(255, 255, 255, 0.8); }
 
 .hero__dot--active {
-  width: 24px;
-  background: #ffffff;
+  width: 20px;
+  background: #333;
 }
 
-/* =========================
-   MOBILE ≤ 768px
-========================= */
+/* MOBILE */
 @media (max-width: 768px) {
-  .hero__btn {
-    width: 34px;
-    height: 34px;
-    font-size: 12px;
+  .hero {
+    height: 38vh;
+    min-height: 200px;
   }
-
-  .hero__btn--prev { left: 6px; }
-  .hero__btn--next { right: 6px; }
-
-  .hero__dots {
-    bottom: 8px;
-    gap: 5px;
-    padding: 5px 9px;
-  }
-
-  .hero__dot { width: 6px; height: 6px; }
-  .hero__dot--active { width: 16px; }
-}
-
-/* =========================
-   SMALL MOBILE ≤ 480px
-========================= */
-@media (max-width: 480px) {
-  .hero__btn {
-    width: 28px;
-    height: 28px;
-    font-size: 10px;
-  }
-
-  .hero__btn--prev { left: 4px; }
-  .hero__btn--next { right: 4px; }
 }

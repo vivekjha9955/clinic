@@ -1,4 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
 import "./Services.css";
 import SectionHeader from "../Common/SectionHeader";
 import AllServices from "./AllServices";
@@ -20,97 +26,77 @@ const Services = () => {
   const [showAllServices, setShowAllServices] = useState(false);
   const [current, setCurrent] = useState(0);
 
-  const allServices = [
-    {
-      id: 1,
-      title: "Hearing Test",
-      image: hearingTestImg,
-      tag: "Most Popular",
-    },
-    {
-      id: 2,
-      title: "Hearing Aid",
-      image: hearingAidImg,
-      tag: "Top Choice",
-    },
-    {
-      id: 3,
-      title: "Speech Therapy",
-      image: speechTherapyImg,
-      tag: "Special Care",
-    },
-    {
-      id: 4,
-      title: "Hearing Care",
-      image: hearingCareImg,
-      tag: "Complete Support",
-    },
-    {
-      id: 5,
-      title: "Pure Tone Audiometry",
-      image: pureToneAudiometryImg,
-      tag: "Diagnostic",
-    },
-    {
-      id: 6,
-      title: "Speech Audiometry",
-      image: speechAudiometryImg,
-      tag: "Diagnostic",
-    },
-    {
-      id: 7,
-      title: "ABR Test",
-      image: abrTestImg,
-      tag: "Advanced Test",
-    },
-    {
-      id: 8,
-      title: "ENG Test",
-      image: engTestImg,
-      tag: "Balance Test",
-    },
-    {
-      id: 9,
-      title: "ECoG",
-      image: ecogImg,
-      tag: "Advanced Test",
-    },
-    {
-      id: 10,
-      title: "VEMP",
-      image: vempImg,
-      tag: "Vestibular",
-    },
-    {
-      id: 11,
-      title: "OAE",
-      image: oaeImg,
-      tag: "Quick Screening",
-    },
-  ];
+  const startX = useRef(0);
+  const endX = useRef(0);
+  const timerRef = useRef(null);
 
-  const groupedServices = [];
-  for (let i = 0; i < allServices.length; i += 3) {
-    groupedServices.push(allServices.slice(i, i + 3));
-  }
+  // ✅ STABLE SERVICES DATA
+  const allServices = useMemo(
+    () => [
+      { id: 1, title: "Hearing Test", image: hearingTestImg, tag: "Most Popular" },
+      { id: 2, title: "Hearing Aid", image: hearingAidImg, tag: "Top Choice" },
+      { id: 3, title: "Speech Therapy", image: speechTherapyImg, tag: "Special Care" },
+      { id: 4, title: "Hearing Care", image: hearingCareImg, tag: "Complete Support" },
+      { id: 5, title: "Pure Tone Audiometry", image: pureToneAudiometryImg, tag: "Diagnostic" },
+      { id: 6, title: "Speech Audiometry", image: speechAudiometryImg, tag: "Diagnostic" },
+      { id: 7, title: "ABR Test", image: abrTestImg, tag: "Advanced Test" },
+      { id: 8, title: "ENG Test", image: engTestImg, tag: "Balance Test" },
+      { id: 9, title: "ECoG", image: ecogImg, tag: "Advanced Test" },
+      { id: 10, title: "VEMP", image: vempImg, tag: "Vestibular" },
+      { id: 11, title: "OAE", image: oaeImg, tag: "Quick Screening" },
+    ],
+    []
+  );
 
+  // ✅ GROUPED SERVICES (2 per slide)
+  const groupedServices = useMemo(() => {
+    const grouped = [];
+    for (let i = 0; i < allServices.length; i += 2) {
+      grouped.push(allServices.slice(i, i + 2));
+    }
+    return grouped;
+  }, [allServices]);
+
+  // ✅ AUTOPLAY FUNCTION (STABLE)
+  const startAutoPlay = useCallback(() => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % groupedServices.length);
+    }, 5000);
+  }, [groupedServices.length]);
+
+  // ✅ AUTOPLAY EFFECT
+  useEffect(() => {
+    startAutoPlay();
+    return () => clearInterval(timerRef.current);
+  }, [startAutoPlay]);
+
+  // ✅ NAVIGATION
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % groupedServices.length);
+    startAutoPlay();
   };
 
   const prevSlide = () => {
-    setCurrent(
-      (prev) => (prev - 1 + groupedServices.length) % groupedServices.length
+    setCurrent((prev) =>
+      (prev - 1 + groupedServices.length) % groupedServices.length
     );
+    startAutoPlay();
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % groupedServices.length);
-    }, 4500);
+  // ✅ SWIPE
+  const handleTouchStart = (e) => {
+    startX.current = e.touches[0].clientX;
+  };
 
-    return () => clearInterval(timer);
-  }, [groupedServices.length]);
+  const handleTouchMove = (e) => {
+    endX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (startX.current - endX.current > 50) nextSlide();
+    else if (endX.current - startX.current > 50) prevSlide();
+  };
 
   return (
     <>
@@ -119,24 +105,16 @@ const Services = () => {
           <SectionHeader
             tag="What We Offer"
             title="Our Services"
-            subtitle="Comprehensive hearing, speech, rehabilitation, vestibular, and advanced diagnostic services designed to deliver accurate diagnosis, personalised care, and long-term support for every age group."
+            subtitle="Complete hearing & diagnostic services."
           />
 
-          <div className="services__highlight-bar">
-            <div className="services__highlight-icon">
-              <i className="fas fa-stethoscope"></i>
-            </div>
-            <div className="services__highlight-content">
-              <h3>These Are The Services We Provide</h3>
-              <p>
-                Explore our specialised hearing, speech, balance, and advanced
-                diagnostic services designed for complete personalised care.
-              </p>
-            </div>
-          </div>
-
           <div className="services__intro">
-            <div className="services__carousel-wrap">
+            <div
+              className="services__carousel-wrap"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className="services__carousel-track"
                 style={{ transform: `translateX(-${current * 100}%)` }}
@@ -168,45 +146,42 @@ const Services = () => {
                 ))}
               </div>
 
+              {/* NAV */}
               <button
                 className="services__nav services__nav--prev"
                 onClick={prevSlide}
-                aria-label="Previous services"
               >
-                <i className="fas fa-chevron-left"></i>
+                ‹
               </button>
-
               <button
                 className="services__nav services__nav--next"
                 onClick={nextSlide}
-                aria-label="Next services"
               >
-                <i className="fas fa-chevron-right"></i>
+                ›
               </button>
             </div>
 
+            {/* DOTS */}
             <div className="services__dots">
               {groupedServices.map((_, index) => (
                 <button
                   key={index}
-                  className={`services__dot ${
-                    current === index ? "services__dot--active" : ""
-                  }`}
-                  onClick={() => setCurrent(index)}
-                  aria-label={`Go to service group ${index + 1}`}
+                  className={current === index ? "active" : ""}
+                  onClick={() => {
+                    setCurrent(index);
+                    startAutoPlay();
+                  }}
                 />
               ))}
             </div>
 
-            <div className="services__cta-wrap">
-              <button
-                className="services__cta-btn"
-                onClick={() => setShowAllServices(true)}
-              >
-                Know About All Our Services
-                <i className="fas fa-arrow-right"></i>
-              </button>
-            </div>
+            {/* CTA */}
+            <button
+              className="services__cta-btn"
+              onClick={() => setShowAllServices(true)}
+            >
+              View All Services →
+            </button>
           </div>
         </div>
       </section>
