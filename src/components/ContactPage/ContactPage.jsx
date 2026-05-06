@@ -21,25 +21,31 @@ const ContactPage = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Contact Form Submitted:", formData);
+
+    const whatsappMessage = 
+`*New Appointment Request*
+
+*Name:* ${formData.name}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
+*Service:* ${formData.service}
+*Message:* ${formData.message}`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappURL = `https://wa.me/916367667306?text=${encodedMessage}`;
+
+    window.open(whatsappURL, "_blank");
 
     setSubmitted(true);
 
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        service: "",
-        message: "",
-      });
+      setFormData({ name: "", phone: "", email: "", service: "", message: "" });
     }, 3000);
   };
 
   return (
     <div className="contact-full-page">
-      {/* Header */}
       <header className="contact-full-header">
         <div className="container">
           <div className="contact-full-header__inner">
@@ -47,7 +53,6 @@ const ContactPage = ({ onClose }) => {
               <i className="fas fa-arrow-left"></i>
               Back to Home
             </button>
-
             <div className="contact-full-header__content">
               <div className="contact-full-header__icon">
                 <i className="fas fa-headset"></i>
@@ -65,10 +70,10 @@ const ContactPage = ({ onClose }) => {
         </div>
       </header>
 
-      {/* Body */}
       <main className="contact-full-body">
         <div className="container">
           <div className="contact-full-layout">
+
             {/* Left Side */}
             <div className="contact-full-left">
               <div className="contact-highlight-card">
@@ -89,11 +94,7 @@ const ContactPage = ({ onClose }) => {
                 <div>
                   <h3>WhatsApp Support</h3>
                   <p>Chat with us for quick help, follow-ups, and appointment requests.</p>
-                  <a
-                    href="https://wa.me/916367667306"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://wa.me/916367667306" target="_blank" rel="noreferrer">
                     Start WhatsApp Chat
                   </a>
                 </div>
@@ -122,16 +123,13 @@ const ContactPage = ({ onClose }) => {
                     <p>Indian Speech & Hearing Clinic</p>
                   </div>
                 </div>
-
                 <p className="contact-clinic-card__address">
                   1st Floor, Arctic Mall, Bariatu Road, Ranchi - 834009, Jharkhand, India
                 </p>
-
                 <div className="contact-clinic-card__meta">
                   <span><i className="fas fa-clock"></i> Mon - Sat: 10:00 AM - 7:00 PM</span>
                   <span><i className="fas fa-user-doctor"></i> Expert Audiologist Support</span>
                 </div>
-
                 <div className="contact-map-frame">
                   <iframe
                     title="Clinic Location"
@@ -152,9 +150,7 @@ const ContactPage = ({ onClose }) => {
                 <div className="contact-form-card__head">
                   <span className="contact-form-card__tag">Quick Appointment</span>
                   <h2>Book Your Appointment</h2>
-                  <p>
-                    Fill in your details and our team will contact you shortly for consultation.
-                  </p>
+                  <p>Fill in your details and our team will contact you shortly for consultation.</p>
                 </div>
 
                 {submitted ? (
@@ -162,8 +158,8 @@ const ContactPage = ({ onClose }) => {
                     <div className="contact-success-state__icon">
                       <i className="fas fa-circle-check"></i>
                     </div>
-                    <h3>Appointment Request Sent!</h3>
-                    <p>Thank you. Our team will get in touch with you shortly.</p>
+                    <h3>Redirecting to WhatsApp!</h3>
+                    <p>Your appointment details have been prepared. Complete the chat on WhatsApp.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="contact-form-grid">
@@ -205,19 +201,19 @@ const ContactPage = ({ onClose }) => {
                     <div className="contact-form-group contact-form-group--full">
                       <label>Select Service</label>
                       <select
-  name="service"
-  value={formData.service}
-  onChange={handleChange}
-  required
->
-  <option value="">Choose a consultation type</option>
-  <option value="General Consultation">General Consultation</option>
-  <option value="Hearing Consultation">Hearing Consultation</option>
-  <option value="Hearing Aid Consultation">Hearing Aid Consultation</option>
-  <option value="Speech Therapy Consultation">Speech Therapy Consultation</option>
-  <option value="Child Speech Consultation">Child Speech Consultation</option>
-  <option value="Follow-Up Consultation">Follow-Up Consultation</option>
-</select>
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="">Choose a consultation type</option>
+                        <option value="General Consultation">General Consultation</option>
+                        <option value="Hearing Consultation">Hearing Consultation</option>
+                        <option value="Hearing Aid Consultation">Hearing Aid Consultation</option>
+                        <option value="Speech Therapy Consultation">Speech Therapy Consultation</option>
+                        <option value="Child Speech Consultation">Child Speech Consultation</option>
+                        <option value="Follow-Up Consultation">Follow-Up Consultation</option>
+                      </select>
                     </div>
 
                     <div className="contact-form-group contact-form-group--full">
@@ -233,14 +229,15 @@ const ContactPage = ({ onClose }) => {
 
                     <div className="contact-form-group contact-form-group--full">
                       <button type="submit" className="contact-submit-btn">
-                        <i className="fas fa-paper-plane"></i>
-                        Submit Appointment Request
+                        <i className="fab fa-whatsapp"></i>
+                        Send via WhatsApp
                       </button>
                     </div>
                   </form>
                 )}
               </div>
             </div>
+
           </div>
         </div>
       </main>
