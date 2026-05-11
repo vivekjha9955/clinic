@@ -5,20 +5,36 @@ import hearingTestImg from "../../assets/hearingtest.png";
 import hearingAidImg from "../../assets/hearingaid.png";
 import speechTherapyImg from "../../assets/speechtherapy.png";
 import hearingCareImg from "../../assets/hearingcare.png";
-
+import ptaImg from "../../assets/PureToneAudiometory.png";
+import speechAudiometryImg from "../../assets/SpeechAudiometry.png";
+import abrImg from "../../assets/ABRTest.png";
+import engImg from "../../assets/EngTest.png";
+import ecogImg from "../../assets/ECOG.png";
+import vempImg from "../../assets/VVEMP.png";
+import oaeImg from "../../assets/OAE.png";
 const SERVICE_IMAGES = {
+
   "Hearing Test": hearingTestImg,
+
   "Hearing Aid": hearingAidImg,
+
   "Speech Therapy": speechTherapyImg,
+
   "Hearing Care": hearingCareImg,
 
-  "Pure Tone Audiometry": null,
-  "Speech Audiometry": null,
-  "Auditory Brainstem Response (ABR)": null,
-  "Electronystagmography (ENG)": null,
-  "Electrocochleography (ECoG)": null,
-  "Vestibular Evoked Myogenic Potential (VEMP)": null,
-  "Otoacoustic Emission (OAE)": null,
+  "Pure Tone Audiometry": ptaImg,
+
+  "Speech Audiometry": speechAudiometryImg,
+
+  "Auditory Brainstem Response (ABR)": abrImg,
+
+  "Electronystagmography (ENG)": engImg,
+
+  "Electrocochleography (ECoG)": ecogImg,
+
+  "Vestibular Evoked Myogenic Potential (VEMP)": vempImg,
+
+  "Otoacoustic Emission (OAE)": oaeImg,
 };
 
 const SERVICE_DETAILS = {
