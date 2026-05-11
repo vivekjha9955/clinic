@@ -3,6 +3,8 @@
   color: #fff;
   font-size: 13px;
   padding: 7px 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .top-bar .container {
@@ -17,6 +19,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .top-bar__link {
@@ -24,18 +27,38 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  position: relative;
   gap: 6px;
   transition: opacity 0.2s;
-
+  white-space: nowrap;
 }
 
 .top-bar__link:hover {
   opacity: 0.8;
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+  .top-bar__left {
+    display: none;
+  }
+}
+
+/* Mobile */
 @media (max-width: 600px) {
   .top-bar__left {
     display: none;
+  }
+
+  .top-bar__email {
+    display: none;
+  }
+
+  .top-bar .container {
+    justify-content: center;
+  }
+
+  .top-bar__right {
+    justify-content: center;
+    gap: 12px;
   }
 }

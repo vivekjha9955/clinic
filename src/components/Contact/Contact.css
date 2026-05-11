@@ -46,6 +46,7 @@
   font-size: 18px;
 }
 
+
 .contact__item div {
   display: flex;
   flex-direction: column;
@@ -130,6 +131,15 @@
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
+}
+.contact__submit-btn {
+  margin-top: -10px;
+}
+
+@media (max-width: 600px) {
+  .contact__submit-btn {
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 992px) {

@@ -1,3 +1,4 @@
+// 
 import React, { useState, useEffect } from "react";
 import "./styles/global.css";
 
@@ -20,119 +21,240 @@ import ContactPage from "./components/ContactPage/ContactPage";
 import BrandDetail from "./components/Brands/BrandDetail";
 import ServiceDetail from "./components/Services/Servicedetails";
 import QuickEnquiry from "./components/Common/QuickEnquiry";
-// import SpeechTherapy from "./components/SpeechTherapy/SpeechTherapySection";
-import HearingLossSe from "./components/HearingImportance/HearingImportance"
+import HearingLossSe from "./components/HearingImportance/HearingImportance";
 import HearingLoss from "./components/HearingLossSeverity/HearingLossSeverity";
-// import OccupationalTherapy from "./components/SpeechTherapy/SpeechTherapySection";
-function App() {
-  const [showFAQ, setShowFAQ]           = useState(false);
-  const [selectedBrand, setSelectedBrand]   = useState(null);
-  const [selectedService, setSelectedService] = useState(null);
-  const [showContactPage, setShowContactPage] = useState(false);
 
-  // ── OPEN helpers — each pushes its own history entry ──────────────────
+function App() {
+
+  const [showFAQ, setShowFAQ] = useState(false);
+
+  const [selectedBrand, setSelectedBrand] =
+    useState(null);
+
+  const [selectedService, setSelectedService] =
+    useState(null);
+
+  const [showContactPage, setShowContactPage] =
+    useState(false);
+
+  /* =========================
+     OPEN FAQ
+  ========================= */
   const openFAQ = () => {
-    window.history.pushState({ modal: "faq" }, "");
+    window.history.pushState(
+      { modal: "faq" },
+      ""
+    );
+
     setShowFAQ(true);
   };
 
+  /* =========================
+     OPEN BRAND
+  ========================= */
   const openBrandDetail = (brand) => {
-    window.history.pushState({ modal: "brand", brandId: brand.id }, "");
+    window.history.pushState(
+      {
+        modal: "brand",
+        brandId: brand.id,
+      },
+      ""
+    );
+
     setSelectedBrand(brand);
   };
 
-  const openServiceDetail = (service) => {
-    window.history.pushState({ modal: "service", serviceId: service.id }, "");
+  /* =========================
+     OPEN SERVICE
+  ========================= */
+  const openServiceDetail = (
+    service
+  ) => {
+    window.history.pushState(
+      {
+        modal: "service",
+        serviceId: service.id,
+      },
+      ""
+    );
+
     setSelectedService(service);
   };
 
+  /* =========================
+     OPEN CONTACT
+  ========================= */
   const openContactPage = () => {
-    window.history.pushState({ modal: "contact" }, "");
+    window.history.pushState(
+      { modal: "contact" },
+      ""
+    );
+
     setShowContactPage(true);
   };
 
-  // ── CLOSE helper — just go back; popstate handler will close the modal ─
+  /* =========================
+     CLOSE MODALS
+  ========================= */
   const closeByBack = () => {
     window.history.back();
   };
 
-  // ── POPSTATE — fired when browser/Android back is pressed ─────────────
+  /* =========================
+     HANDLE BROWSER BACK
+  ========================= */
   useEffect(() => {
-    const handlePopState = (e) => {
+
+    const handlePopState = (
+      e
+    ) => {
       const state = e.state;
 
-      // Close whichever modal is currently open (one at a time)
+      /* CLOSE EVERYTHING */
       setShowContactPage(false);
       setSelectedBrand(null);
       setSelectedService(null);
       setShowFAQ(false);
 
-      // If the state we're going back TO is another modal, re-open it
+      /* REOPEN IF NEEDED */
       if (state) {
-        if (state.modal === "faq")     setShowFAQ(true);
-        if (state.modal === "brand")   {/* BrandDetail re-open not needed — user just wants to close */}
-        if (state.modal === "service") {/* same */}
-        if (state.modal === "contact") setShowContactPage(true);
+
+        if (
+          state.modal === "faq"
+        ) {
+          setShowFAQ(true);
+        }
+
+        if (
+          state.modal === "contact"
+        ) {
+          setShowContactPage(true);
+        }
       }
     };
 
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
+    window.addEventListener(
+      "popstate",
+      handlePopState
+    );
+
+    return () => {
+      window.removeEventListener(
+        "popstate",
+        handlePopState
+      );
+    };
+
   }, []);
 
   return (
     <div className="App" id="home">
+
       <TopBar />
+
       <Navbar
         onFAQClick={openFAQ}
-        onBrandSelect={openBrandDetail}
-        onServiceSelect={openServiceDetail}
-        onContactClick={openContactPage}
+        onBrandSelect={
+          openBrandDetail
+        }
+        onServiceSelect={
+          openServiceDetail
+        }
+        onContactClick={
+          openContactPage
+        }
       />
+
       <Hero />
+
       <AppointmentBar />
+
       <Services
-        onServiceSelect={openServiceDetail}
-        onContactClick={openContactPage}
+        onServiceSelect={
+          openServiceDetail
+        }
+        onContactClick={
+          openContactPage
+        }
       />
-      <HearingLossSe/>
-      <HearingLoss/>
+
+      <HearingLossSe />
+
+      <HearingLoss />
+
       <About />
+
       <Stats />
-      <QuickEnquiry onClick={openContactPage} />
-            <HearingTypes onContactClick={openContactPage} />
+
+      <QuickEnquiry
+        onClick={
+          openContactPage
+        }
+      />
+
+      <HearingTypes
+        onContactClick={
+          openContactPage
+        }
+      />
+
       <Brands
-        onBrandSelect={openBrandDetail}
-        onContactClick={openContactPage}
+        onBrandSelect={
+          openBrandDetail
+        }
+        onContactClick={
+          openContactPage
+        }
       />
 
       <WhyTrust />
 
       <Testimonials />
+
       <Contact />
+
       <Footer />
+
       <FloatingButtons />
 
+      {/* FAQ MODAL */}
       {showFAQ && (
-        <FAQPage onClose={closeByBack} />
+        <FAQPage
+          onClose={closeByBack}
+        />
       )}
+
+      {/* BRAND DETAIL */}
       {selectedBrand && (
         <BrandDetail
           brand={selectedBrand}
           onClose={closeByBack}
-          onContactClick={openContactPage}
+          onContactClick={
+            openContactPage
+          }
         />
       )}
+
+      {/* SERVICE DETAIL */}
       {selectedService && (
         <ServiceDetail
-          service={selectedService}
+          service={
+            selectedService
+          }
           onClose={closeByBack}
-          onContactClick={openContactPage}
+          onContactClick={
+            openContactPage
+          }
         />
       )}
+
+      {/* CONTACT PAGE */}
       {showContactPage && (
-        <ContactPage onClose={closeByBack} />
+        <ContactPage
+          onClose={closeByBack}
+        />
       )}
+
     </div>
   );
 }

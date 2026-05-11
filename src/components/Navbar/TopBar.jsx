@@ -6,13 +6,11 @@ const TopBar = () => {
   return (
     <div className="top-bar">
       <div className="container">
-       
         <div className="top-bar__left">
-          
           Best Hearing Care Clinic in Ranchi
         </div>
         <div className="top-bar__right">
-          <a href={`mailto:${CONTACT_INFO.email}`} className="top-bar__link">
+          <a href={`mailto:${CONTACT_INFO.email}`} className="top-bar__link top-bar__email">
             <i className="fas fa-envelope"></i>
             {CONTACT_INFO.email}
           </a>
