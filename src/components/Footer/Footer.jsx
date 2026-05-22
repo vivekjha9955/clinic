@@ -18,10 +18,8 @@ const Footer = () => {
             </div>
             <div className="footer__unit">Trustable Enterprise</div>
             <p>
-               Our mission is to improve the
-              health of our community by providing high quality, comprehensive
-              hearing care in a welcoming and compassionate environment.
-            </p>
+  Our mission is to enhance lives through exceptional hearing care, delivering personalized, comprehensive, and compassionate services in a warm and supportive environment.
+</p>
             <div className="footer__contacts">
               <a href={`mailto:${CONTACT_INFO.email}`}>
                 <i className="fas fa-envelope"></i>
@@ -37,7 +35,7 @@ const Footer = () => {
                 rel="noreferrer"
               >
                 <i className="fas fa-location-dot"></i>
-                1st Floor, Arctic Mall, Bariatu Road, Ranchi – 834009, Jharkhand
+                14,1st Floor, Arctic Mall, Opp.Old Army School, Near Dr. H.p Narayan , Bariatu Road, Ranchi -834009 Jharkhand
               </a>
             </div>
           </div>
@@ -93,7 +91,7 @@ const Footer = () => {
       <div className="footer__bottom">
         <div className="container">
           © {new Date().getFullYear()} Indian Speech &amp; Hearing Clinic. All Rights Reserved. |
-          Designed with ❤️ for Better Hearing Health
+          Designed with ❤️ 
         </div>
       </div>
     </footer>

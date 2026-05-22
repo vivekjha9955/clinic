@@ -97,10 +97,10 @@ export const BLOGS = [
 // ===== CONTACT INFO =====
 export const CONTACT_INFO = {
   email: "indian.speechhearingclinic@gmail.com",
-  phone1: "+91 6367667306",
-  phone2: "+91 6367667306",
-  whatsapp: "6367667306",
-  mapUrl: "https://www.google.com/maps?q=23.38892,85.33644",
+  phone1: "+91 8210394248",
+  phone2: "+91 8210394248",
+  whatsapp: "8210394248",
+  mapUrl: "https://share.google/GLPR5VLkqANcpyX4g",
   locations: [
     {
       id: 1,

@@ -1,7 +1,7 @@
 // 
 import React, { useState, useEffect } from "react";
 import "./styles/global.css";
-
+import Gallery from "./components/Gallery/Gallery"
 import TopBar from "./components/Navbar/TopBar";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
@@ -208,7 +208,7 @@ function App() {
       />
 
       <WhyTrust />
-
+      <Gallery/>
       <Testimonials />
 
       <Contact />
