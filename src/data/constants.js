@@ -100,7 +100,7 @@ export const CONTACT_INFO = {
   phone1: "+91 8210394248",
   phone2: "+91 8210394248",
   whatsapp: "8210394248",
-  mapUrl: "https://share.google/GLPR5VLkqANcpyX4g",
+  mapUrl: "https://maps.app.goo.gl/jHTSBgvu6ddwRuwh8",
   locations: [
     {
       id: 1,

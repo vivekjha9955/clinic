@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./Gallery.css";
 
 /* IMAGES */
-import img1 from "../../Gallary/img1.png";
-import img2 from "../../Gallary/img2.jpeg";
+import img1 from "../../Gallary/img1.jpeg";
+import img2 from "../../Gallary/img2.png";
 import img3 from "../../Gallary/img3.jpeg";
 import img4 from "../../Gallary/img4.jpeg";
-import img5 from "../../Gallary/img5.png";
+import img5 from "../../Gallary/img5.jpeg";
 
-import img7 from "../../Gallary/img7.jpeg";
+import img7 from "../../Gallary/img7.jpg";
 
 const galleryImages = [
   img1,
