@@ -33,10 +33,10 @@ const About = () => {
 </p>
 
             <div className="about__highlights">
-              <div className="about__highlight-card">
+              {/* <div className="about__highlight-card">
                 <h4>17+</h4>
                 <span>Years of Excellence</span>
-              </div>
+              </div> */}
               <div className="about__highlight-card">
                 <h4>9000+</h4>
                 <span>Happy Patients</span>

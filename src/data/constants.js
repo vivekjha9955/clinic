@@ -2,6 +2,7 @@
 import FirstCaraousel from "../assets/FirstCaraousel.png";
 import SecondCarousel from "../assets/SecondCaraousel.png";
 import ThirdCaraousel from "../assets/ThirdCaraousel.png";
+import FourthCaraousel from "../assets/FirstCaraousel.png";
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -31,6 +32,11 @@ export const HERO_SLIDES = [
     id: 1,
     image: FirstCaraousel,
     alt: "Hearing care awareness banner",
+  },
+  {
+    id: 4,
+    image: FourthCaraousel,
+    alt: "Hearing aid fitting banner",
   },
   {
     id: 2,
@@ -65,7 +71,7 @@ export const TRUST_ITEMS = [
   // { id: 1, icon: "fas fa-certificate", label: "Signia Certified Center" },
   { id: 2, icon: "fas fa-user-doctor", label: "Team of Professional Audiologists" },
   { id: 3, icon: "fas fa-microscope", label: "World Class Equipments" },
-  { id: 4, icon: "fas fa-clock", label: "17+ Years of Experience" },
+  // { id: 4, icon: "fas fa-clock", label: "17+ Years of Experience" },
   { id: 5, icon: "fas fa-house-medical", label: "Home Visit Facility" },
   { id: 6, icon: "fas fa-comments", label: "Speech Therapy Available" },
 ];
@@ -74,7 +80,7 @@ export const TRUST_ITEMS = [
 export const TESTIMONIALS = [
   { id: 1, avatar: "R", name: "Ritik Mehta", text: "I recently bought a hearing aid from here. People were very friendly and helpful and explained it very calmly and reasonably how to use it. Their service was very good.", rating: 4 },
   { id: 2, avatar: "S", name: "Suman Kumar Mishra", text: "Got new machine feeling better and balanced. Most important that they understand the need of person who visits. Good experience doctor with expertise and staff well mannered. Thank you.", rating: 4.5 },
-  { id: 3, avatar: "P", name: "Prakash Sharma", text: "I am a repeat customer of Hearing Hope and bought my new Hearing Aids from them. The whole team is very customer-friendly and gives service with a smile. All the very best!", rating: 5 },
+  { id: 3, avatar: "P", name: "Prakash Sharma", text: "I am a repeat customer of this clinic and bought my new Hearing Aids from them. The whole team is very customer-friendly and gives service with a smile. All the very best!", rating: 5 },
   { id: 4, avatar: "S", name: "Srishti Banzal", text: "The staff was very professional and friendly. They gave my grandmother a very good audiometry and hearing aid trial at home. I would recommend Hearing Hope for your needs.", rating: 5 },
   { id: 5, avatar: "G", name: "Gaurav Vij", text: "Happy with service. The staff is very co-operative. They provide the best services to their patients and provided a good hearing aid for my brother. Thanks.", rating: 4.2 },
 ];
