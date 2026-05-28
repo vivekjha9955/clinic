@@ -63,7 +63,7 @@ export const STATS = [
   { id: 1, icon: "fas fa-calendar-days", target: 17, suffix: "+", label: "Years of Experience" },
   { id: 2, icon: "fas fa-face-smile", target: 9000, suffix: "+", label: "Happy Customers" },
   { id: 3, icon: "fas fa-headphones", target: 13000, suffix: "+", label: "Hearing Aids Sold" },
-  { id: 4, icon: "fas fa-stethoscope", target: 11000, suffix: "+", label: "Hearing Tests Done" },
+  { id: 4, icon: "fas fa-stethoscope", target: 46000, suffix: "+", label: "Hearing Tests Done" },
 ];
 
 // ===== WHY TRUST DATA =====
