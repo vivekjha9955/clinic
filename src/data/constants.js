@@ -2,7 +2,7 @@
 import FirstCaraousel from "../assets/FirstCaraousel.png";
 import SecondCarousel from "../assets/SecondCaraousel.png";
 import ThirdCaraousel from "../assets/ThirdCaraousel.png";
-import FourthCaraousel from "../assets/FirstCaraousel.png";
+import FourthCaraousel from "../assets/FourthCaraousel.png";
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
