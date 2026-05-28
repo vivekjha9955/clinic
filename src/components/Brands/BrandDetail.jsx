@@ -15,7 +15,7 @@ import NaidaParadiseImg from "../../assets/NaidaParadise.jpg";
 import VirtoParadiseImg from "../../assets/VirtoParadise.jpg";
 import SkyMarvelImg from "../../assets/SkyMarvel.jpg";
 import BoleroMarvelImg from "../../assets/BoleroMarvel.jpg";
-import ResoundNexiaITCImg from "../../assets/ResoundNexiaITC.jpg";
+import ResoundNexiaITCImg from "../../assets/ResoundNexia.jpeg";
 import SigniaPureChargeImg from "../../assets/SigniaPureCharge&GoIX.jpg";
 import SigniaInsioAXImg from "../../assets/SigniaInsioAX.jpg";
 import SigniaSilkImg from "../../assets/SigniaSilkCharge_Go.jpg";
@@ -38,7 +38,7 @@ import StarkeyEvolv from "../../assets/starkey-evolv-ai-2000-digital-hearing-aid
 import StarkeyLivio from "../../assets/Starkey-Livio-AI.jpg";
 import StarkeySoundLens from "../../assets/Starkey-SoundLens-iQ-IIC.jpg";
 import StarkeyGenesis from "../../assets/starkey-genesis-ai-16-cic-hearing-aids.jpg";
-
+import StarkeyMuseiQ from "../../assets/StarkeymuseIq.png";
 import ReSoundNexiaImg from "../../assets/ReSoundNexia.jpg";
 import ReSoundOmniaImg from "../../assets/ReSoundOmnia.jpg";
 import ReSoundONEImg from "../../assets/ReSoundONE.jpg";
@@ -65,7 +65,8 @@ const MODEL_IMAGES = {
   "Phonak_Naída Paradise": NaidaParadiseImg,
   "Phonak_Virto Paradise": VirtoParadiseImg,
   "Phonak_Sky Marvel": SkyMarvelImg,
-  "ResoundNexiaITC.jpg": ResoundNexiaITCImg,
+  // "ResoundNexiaITC.jpg": ResoundNexiaITCImg,
+  "ReSound_ReSound Nexia ITC": ResoundNexiaITCImg,
   "Phonak_Bolero Marvel": BoleroMarvelImg,
 
   "Signia_Pure Charge & Go IX": SigniaPureChargeImg,
@@ -91,7 +92,7 @@ const MODEL_IMAGES = {
   "Starkey_Genesis AI": StarkeyGenesis,
   "Starkey_Livio AI": StarkeyLivio,
   "Starkey_SoundLens": StarkeySoundLens,
-  "Starkey_Muse iQ": starkeyImg,
+  "Starkey_Muse iQ": StarkeyMuseiQ,
 
   "ReSound_ReSound Nexia": ReSoundNexiaImg,
   "ReSound_ReSound Omnia": ReSoundOmniaImg,

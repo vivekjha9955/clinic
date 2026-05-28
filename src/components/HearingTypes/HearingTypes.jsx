@@ -5,8 +5,8 @@ import bteImg          from "../../assets/starkey-bte-13-muse-iq-1200-.jpg";
 import ricImg          from "../../assets/WidexSmartRIC.jpg";
 import cicImg          from "../../assets/VirtoParadise.jpg";
 import iicImg          from "../../assets/Starkey-SoundLens-iQ-IIC.jpg";
-import rechargeableImg from "../../assets/ReSoundNexia.jpg";
-import itcImg          from "../../assets/SigniaFunSP.png";
+import rechargeableImg from "../../assets/ResoundNexia.jpeg";
+import itcImg          from "../../assets/ITC111.jpeg";
 
 const hearingTypesData = [
   {
