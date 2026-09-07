@@ -5,8 +5,8 @@ background: #3d0000;   /* dark maroon footer */
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.4fr;
-  gap: 50px;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr 1.4fr;
+  gap: 40px;
   padding: 60px 0 50px;
 }
 
@@ -21,6 +21,16 @@ background: #3d0000;   /* dark maroon footer */
 
 .footer__logo span {
   color: var(--accent);
+}
+
+/* Compact wordmark, styled after the GN-style reference logo */
+.footer__logo--mark {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 14px;
 }
 
 .footer__unit {
@@ -101,6 +111,21 @@ background: #3d0000;   /* dark maroon footer */
   padding-left: 4px;
 }
 
+/* Plain text list items (e.g. Hearing Loss) — no link styling/behavior */
+.footer__col--plain li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer__col--plain li::before {
+  content: '›';
+  color: var(--accent);
+  font-size: 18px;
+}
+
 /* Locations */
 .footer__location {
   display: flex;
@@ -139,19 +164,85 @@ background: #3d0000;   /* dark maroon footer */
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+/* ===== Responsive ===== */
+
+/* Large desktop / laptop: brand column shrinks a touch to save the 4 link columns from squeezing */
+@media (max-width: 1440px) {
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr;
+    gap: 32px;
   }
 }
 
+/* Small laptop / large tablet: brand takes full width, remaining 4 columns share a row */
+@media (max-width: 1200px) {
+  .footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+  }
+}
+
+/* Tablet: 2 columns, brand spans full width on its own row */
+@media (max-width: 900px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Large phones: keep 2 columns but tighten spacing */
 @media (max-width: 600px) {
   .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    padding: 44px 0 32px;
+  }
+  .footer__logo--mark {
+    font-size: 30px;
+  }
+}
+
+/* Small phones: single column, everything stacked */
+@media (max-width: 480px) {
+  .footer__grid {
     grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 40px 0 30px;
+    gap: 28px;
+    padding: 36px 0 28px;
+  }
+  .footer__brand {
+    grid-column: auto;
+  }
+  .footer__logo--mark {
+    font-size: 28px;
+  }
+  .footer__contacts a {
+    font-size: 12.5px;
+  }
+  .footer__col h4 {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+  .footer__grid {
+    gap: 24px;
+    padding: 32px 0 24px;
+  }
+  .footer__brand p {
+    font-size: 12.5px;
+  }
+  .footer__bottom {
+    font-size: 11.5px;
+    padding: 14px 0;
   }
 }
 
